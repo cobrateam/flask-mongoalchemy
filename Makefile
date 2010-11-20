@@ -9,12 +9,11 @@ test: clean
 coverage:
 	@coverage html
 
-themes_dir=`pwd`
-documentation:
+documentation: clean
 	@cd docs && make html
 	@firefox docs/_build/html/index.html
 
 clean:
 	@echo 'Cleaning...'
 	@find . -name '*.pyc' -exec rm -f {} \;
-	@rm -rf cover .coverage
+	@rm -rf cover .coverage docs/_build/*
