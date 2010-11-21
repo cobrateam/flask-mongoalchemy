@@ -9,6 +9,7 @@ http://darcs.idyll.org/~t/projects/pinocchio-latest.tar.gz
 # Development
 flask
 mongoalchemy
+pymongo
 
 # Documentation
 sphinx

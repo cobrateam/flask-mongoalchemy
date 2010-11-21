@@ -30,7 +30,8 @@ setup(
     platforms='any',
     install_requires=[
         'Flask',
-        'MongoAlchemy'
+        'MongoAlchemy',
+        'pymongo',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
