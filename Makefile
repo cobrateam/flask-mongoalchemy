@@ -1,7 +1,10 @@
-build: bootstrap test coverage
+build: bootstrap develop test coverage
 
 bootstrap:
 	@pip install -r requirements.txt
+
+develop:
+	@python -c 'from flaskext import mongoalchemy' 2>/dev/null || python setup.py develop
 
 test: clean
 	@specloud --config=tests/nose.cfg
