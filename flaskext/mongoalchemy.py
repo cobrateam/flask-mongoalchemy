@@ -24,12 +24,12 @@ class MongoAlchemy(object):
     """Class used to control the MongoAlchemy integration to a Flask application.
 
     You can use this by providing the Flask app on instantiation or by calling an init_app method
-    an instance object of ``MongoAlchemy``. Here a sample of providing the application on instantiation: ::
+    an instance object of `MongoAlchemy`. Here a sample of providing the application on instantiation: ::
 
         app = Flask(__name__)
         db = MongoAlchemy(app)
 
-    And here calling the ``init_app`` method: ::
+    And here calling the :meth:`init_app` method: ::
 
         db = MongoAlchemy()
 
@@ -50,5 +50,8 @@ class MongoAlchemy(object):
             self.app = None
 
     def init_app(self, app):
+        """This callback can be used to initialize an application for the use with this
+        MongoDB setup. Never use a database in the context of an application not
+        initialized that way or connections will leak."""
         self.app = app
 

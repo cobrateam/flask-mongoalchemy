@@ -6,6 +6,8 @@
 Welcome to Flask MongoAlchemy's documentation!
 ==============================================
 
+.. module:: flaskext.mongoalchemy
+
 Flask-MongoAlchemy adds support for `MongoDB`_ on `Flask`_ using `MongoAlchemy`_. Source code and issue tracking at `Github`_.
 
 Installation
@@ -31,8 +33,14 @@ Make sure you have MongoDB installed for use it.
 API
 ---
 
-.. autoclass:: flaskext.mongoalchemy.MongoAlchemy
+This part of the documentation documents all the public classes and
+functions in Flask-SQLAlchemy.
 
+Configuration
++++++++++++++
+
+.. autoclass:: MongoAlchemy
+   :members:
 
 Indices and tables
 ------------------
