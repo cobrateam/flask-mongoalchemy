@@ -31,7 +31,7 @@ Make sure you have MongoDB installed for use it.
 API
 ---
 
-.. module:: flaskext.mongoalchemy
+.. autoclass:: flaskext.mongoalchemy.MongoAlchemy
 
 
 Indices and tables
