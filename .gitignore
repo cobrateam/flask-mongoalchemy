@@ -2,4 +2,7 @@
 *.pyc
 *.pyo
 
+.coverage
+cover
+
 docs/_build
