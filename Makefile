@@ -4,7 +4,7 @@ bootstrap:
 	@pip install -r requirements.txt
 
 test: clean
-	@specloud --config=test/nose.cfg
+	@specloud --config=tests/nose.cfg
 
 coverage:
 	@coverage html
