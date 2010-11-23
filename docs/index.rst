@@ -30,11 +30,35 @@ If you prefer, you can use the last source version by cloning git repository:
 
 Make sure you have MongoDB installed for use it.
 
+Configuration values
+--------------------
+
+The following configuration values exist for Flask-MongoAlchemy:
+
+.. tabularcolumns:: |p{6.5cm}|p{8.5cm}|
+
+=============================== =========================================
+``MONGOALCHEMY_DATABASE``       The database name that should be used for
+                                the connection.
+``MONGOALCHEMY_SERVER``         The MongoDB server.
+
+                                *Default value:* ``localhost``
+``MONGOALCHEMU_PORT``           Port where MongoDB server is listening.
+
+                                *Default value:* ``27017``
+``MONGOALCHEMY_USER``           User for database connection.
+
+                                *Default value:* ``None``
+``MONGOALCHEMY_PASSWORD``       Password for database connection.
+
+                                *Default value:* ``None``
+=============================== =========================================
+
 API
 ---
 
 This part of the documentation documents all the public classes and
-functions in Flask-SQLAlchemy.
+functions in Flask-MongoAlchemy.
 
 Configuration
 +++++++++++++
