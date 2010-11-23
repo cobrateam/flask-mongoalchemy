@@ -10,12 +10,12 @@
 """
 from __future__ import absolute_import
 
-from mongoalchemy.document import Document
+from mongoalchemy import document
 from mongoalchemy import session
 from mongoalchemy import fields
 
 def _include_mongoalchemy(obj):
-    for module in session, fields:
+    for module in session, fields, document:
         for key in dir(module):
             if not hasattr(obj, key):
                 setattr(obj, key, getattr(module, key))
@@ -43,8 +43,6 @@ class MongoAlchemy(object):
     """
 
     def __init__(self, app=None):
-        self.Document = Document
-
         _include_mongoalchemy(self)
 
         if app is not None:
