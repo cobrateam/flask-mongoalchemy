@@ -8,6 +8,7 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
     def setup(self):
         self.app = Flask('testing')
         self.app.config['MONGOALCHEMY_DATABASE'] = 'testing'
+        self.app.config['TESTING'] = True
 
     def should_provide_a_Document_class_to_be_extended_inside_the_MongoAlchemy_object(self):
         from flaskext.mongoalchemy import MongoAlchemy
