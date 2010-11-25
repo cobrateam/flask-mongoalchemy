@@ -40,6 +40,7 @@ def _get_mongo_uri(app):
     return uri
 
 class ImproperlyConfiguredError(Exception):
+    """Exception for error on configurations."""
     pass
 
 class _QueryField(object):
@@ -56,7 +57,7 @@ class _QueryField(object):
 class MongoAlchemy(object):
     """Class used to control the MongoAlchemy integration to a Flask application.
 
-    You can use this by providing the Flask app on instantiation or by calling an init_app method
+    You can use this by providing the Flask app on instantiation or by calling an :meth:`init_app` method
     an instance object of `MongoAlchemy`. Here a sample of providing the application on instantiation: ::
 
         app = Flask(__name__)

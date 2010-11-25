@@ -66,6 +66,12 @@ Configuration
 .. autoclass:: MongoAlchemy
    :members:
 
+Documents
++++++++++
+
+.. autoclass:: Document
+   :members:
+
 Indices and tables
 ------------------
 
