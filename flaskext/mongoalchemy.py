@@ -16,10 +16,9 @@ from mongoalchemy import session
 from mongoalchemy import fields
 
 def _include_mongoalchemy(obj):
-    for module in session, fields:
-        for key in dir(module):
-            if not hasattr(obj, key):
-                setattr(obj, key, getattr(module, key))
+    for key in dir(fields):
+        if not hasattr(obj, key):
+            setattr(obj, key, getattr(fields, key))
 
 def _get_mongo_uri(app):
     app.config.setdefault('MONGOALCHEMY_SERVER', 'localhost')

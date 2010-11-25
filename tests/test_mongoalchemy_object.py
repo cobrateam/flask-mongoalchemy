@@ -52,15 +52,13 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
 
         assert Todo.query is None
 
-    def should_include_all_mongoalchemy_session_objects_and_mongo_alchemy_fields_objects(self):
-        from mongoalchemy import session
+    def should_include_all_mongo_alchemy_fields_objects(self):
         from mongoalchemy import fields
         from flaskext.mongoalchemy import MongoAlchemy
 
         db = MongoAlchemy()
-        for module in session, fields:
-            for key in dir(module):
-                assert_true(hasattr(db, key))
+        for key in dir(fields):
+            assert_true(hasattr(db, key))
 
     def should_be_able_to_instantiate_passing_the_app(self):
         from flaskext.mongoalchemy import MongoAlchemy
