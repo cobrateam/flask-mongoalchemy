@@ -88,7 +88,7 @@ class MongoAlchemy(object):
         MongoDB setup. Never use a database in the context of an application not
         initialized that way or connections will leak."""
         if 'MONGOALCHEMY_DATABASE' not in app.config:
-            raise ImproperlyConfiguredError("You should provide a database name (the MONGOENGINE_DATABASE setting).")
+            raise ImproperlyConfiguredError("You should provide a database name (the MONGOALCHEMY_DATABASE setting).")
 
         uri = _get_mongo_uri(app)
         self.session = session.Session.connect(app.config.get('MONGOALCHEMY_DATABASE'), host=uri)
