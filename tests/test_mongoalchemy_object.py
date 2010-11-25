@@ -4,6 +4,7 @@ from flask import Flask
 from flaskext.mongoalchemy import ImproperlyConfiguredError
 
 class MongoAlchemyObjectTestCase(BaseTestCase):
+    "MongoAlchemy itself object tests"
 
     def setup(self):
         self.app = Flask('testing')
