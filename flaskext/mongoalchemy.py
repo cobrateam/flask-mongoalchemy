@@ -113,6 +113,6 @@ class Document(document.Document):
         """Saves the document itself in the database."""
         self._session.insert(self)
 
-    def delete(self):
+    def remove(self):
         """Removes the document itself from database."""
         self._session.remove(self)

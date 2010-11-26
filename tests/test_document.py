@@ -20,7 +20,7 @@ class MongoAlchemyDocumentTestCase(BaseTestCase):
 
     def teardown(self):
         for todo in self.Todo.query.all():
-            todo.delete()
+            todo.remove()
 
     def should_be_able_to_save_a_document_on_database_by_calling_its_save_method(self):
         "A document should be able to save itself in the database by calling it's \"save()\" method"
@@ -28,10 +28,10 @@ class MongoAlchemyDocumentTestCase(BaseTestCase):
         todo.save()
         assert_equals(self.Todo.query.count(), 1)
 
-    def should_be_able_to_delete_a_document_on_database_by_calling_its_delete_method(self):
-        "A document should be able to delete itself in the database by calling it's \"delete()\" method"
+    def should_be_able_to_remove_a_document_on_database_by_calling_its_remove_method(self):
+        "A document should be able to remove itself in the database by calling it's \"remove()\" method"
         todo = self.Todo(description=u'Reinvent the world')
         todo.save()
         assert_equals(self.Todo.query.count(), 1)
-        todo.delete()
+        todo.remove()
         assert_equals(self.Todo.query.count(), 0)
