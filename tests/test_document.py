@@ -49,3 +49,14 @@ class MongoAlchemyDocumentTestCase(BaseTestCase):
         todo.save()
         searched_todo = self.Todo.get(todo.mongo_id)
         assert_equals(todo, searched_todo)
+
+    def should_be_able_update_a_document_by_calling_its_save_method(self):
+        "A document should be able to update itself in the database by calling it's \"save()\" method"
+        todo = self.Todo(description=u'Reinvent the world')
+        todo.save()
+        mongo_id = todo.mongo_id
+        todo.description = u'Destroy the world.'
+        todo.save()
+        searched_todo = self.Todo.get(mongo_id)
+        assert_equals(searched_todo.description, u'Destroy the world.')
+        assert_equals(self.Todo.query.count(), 1)
