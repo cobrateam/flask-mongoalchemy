@@ -92,6 +92,7 @@ class MongoAlchemy(object):
 
         uri = _get_mongo_uri(app)
         self.session = session.Session.connect(app.config.get('MONGOALCHEMY_DATABASE'), host=uri)
+        self.Document._session = self.session
         self.app = app
 
 class BaseQuery(query.Query):
@@ -107,3 +108,11 @@ class Document(document.Document):
     #: an instance of :attr:`query_class`. Used to query the database
     #: for instances of this document.
     query = None
+
+    def save(self):
+        """Saves the document itself in the database."""
+        self._session.insert(self)
+
+    def delete(self):
+        """Removes the document itself from database."""
+        self._session.remove(self)
