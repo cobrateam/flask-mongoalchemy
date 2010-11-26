@@ -118,3 +118,15 @@ class Document(document.Document):
         """Removes the document itself from database."""
         self._session.remove(self)
         self._session.flush()
+
+    @classmethod
+    def get(cls, mongo_id):
+        """Returns a document instance from its mongo_id"""
+        query = cls._session.query(cls)
+        return query.filter(cls.f.mongo_id==mongo_id).first()
+
+    def __cmp__(self, other):
+        if isinstance(other, type(self)) and self.has_id() and other.has_id():
+            return self.mongo_id.__cmp__(other.mongo_id)
+        else:
+            return -1
