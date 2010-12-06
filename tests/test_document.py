@@ -1,7 +1,7 @@
 from tests import BaseTestCase
 from flask import Flask
 from flaskext import mongoalchemy
-from nose.tools import assert_equals
+from nose.tools import assert_equals, assert_not_equals
 
 def _make_todo_document(db):
     class Todo(db.Document):
@@ -43,6 +43,8 @@ class MongoAlchemyDocumentTestCase(BaseTestCase):
         my_new_todo = self.Todo(description=u'Save the world')
         my_new_todo.mongo_id = todo.mongo_id
         assert_equals(todo, my_new_todo)
+        another_todo = self.Todo(description=u'Destroy the world')
+        assert_not_equals(todo, another_todo)
 
     def should_be_able_to_get_a_document_by_its_mongo_id_via_its_get_method(self):
         todo = self.Todo(description=u'Reinvent the world')
