@@ -30,6 +30,29 @@ If you prefer, you can use the last source version by cloning git repository:
 
 Make sure you have MongoDB installed for use it.
 
+Usage
+-----
+
+It is very easy and fun to use Flask-MongoAlchemy to proxy between Python and MongoDB.
+
+All you have to do is to create an MongoAlchemy object and use this to declare documents. Here a complete example:
+
+::
+
+    from flask import Flask
+    from flaskext.mongoalchemy import MongoAlchemy
+    app = Flask(__name__)
+    app.config['MONGOALCHEMY_DATABASE'] = 'library'
+    db = MongoAlchemy(app)
+
+    class Author(db.Document):
+        name = db.StringField()
+
+    class Book(db.Document):
+        title = db.StringField()
+        author = db.DocumentField(Author)
+        year = db.IntField()
+
 Configuration values
 --------------------
 
