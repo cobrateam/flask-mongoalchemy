@@ -1,15 +1,15 @@
 # Testing
-nose
-coverage
-mocker
-specloud
+nose>=1.0
+coverage>=3.4
+mocker>=1.0
+specloud>=0.4
 http://darcs.idyll.org/~t/projects/figleaf-0.6.1.tar.gz
 http://darcs.idyll.org/~t/projects/pinocchio-latest.tar.gz
 
 # Development
-flask
-mongoalchemy
-pymongo
+flask>=0.6
+-e git+https://github.com/jeffjenkins/MongoAlchemy.git#egg=MongoAlchemy
+pymongo>=1.9
 
 # Documentation
 sphinx
