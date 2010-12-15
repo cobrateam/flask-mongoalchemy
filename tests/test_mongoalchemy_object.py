@@ -64,14 +64,14 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
     def should_be_able_to_instantiate_passing_the_app(self):
         from flaskext.mongoalchemy import MongoAlchemy
         db = MongoAlchemy(self.app)
-        assert_equals(db.app, self.app)
+        assert db.session is not None
 
     def should_be_able_to_instantiate_without_passing_the_app_and_set_it_later(self):
         from flaskext.mongoalchemy import MongoAlchemy
         db = MongoAlchemy()
-        assert db.app is None
+        assert db.session is None
         db.init_app(self.app)
-        assert_equals(db.app, self.app)
+        assert db.session is not None
 
     @raises(ImproperlyConfiguredError)
     def test_shout_not_be_able_to_work_without_providing_a_database_name(self):

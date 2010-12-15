@@ -81,7 +81,7 @@ class MongoAlchemy(object):
         if app is not None:
             self.init_app(app)
         else:
-            self.app = None
+            self.session = None
 
     def init_app(self, app):
         """This callback can be used to initialize an application for the use with this
@@ -93,7 +93,6 @@ class MongoAlchemy(object):
         uri = _get_mongo_uri(app)
         self.session = session.Session.connect(app.config.get('MONGOALCHEMY_DATABASE'), host=uri)
         self.Document._session = self.session
-        self.app = app
 
 class BaseQuery(query.Query):
     pass
