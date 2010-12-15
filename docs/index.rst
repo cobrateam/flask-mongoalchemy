@@ -53,6 +53,21 @@ All you have to do is to create an MongoAlchemy object and use this to declare d
         author = db.DocumentField(Author)
         year = db.IntField()
 
+Now you can create authors and books:
+
+::
+
+    >>> from application import Author, Book
+    >>> mark_pilgrin = Author(name='Mark Pilgrin')
+    >>> dive = Book(title='Dive Into Python', author=mark_pilgrin, year=2004)
+
+And you can save them:
+
+::
+
+    >>> mark_pilgrin.save()
+    >>> dive.save()
+
 Configuration values
 --------------------
 
