@@ -60,6 +60,7 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
         db = MongoAlchemy()
         for key in dir(fields):
             assert_true(hasattr(db, key))
+        assert_true(hasattr(db, 'DocumentField'))
 
     def should_be_able_to_instantiate_passing_the_app(self):
         from flaskext.mongoalchemy import MongoAlchemy

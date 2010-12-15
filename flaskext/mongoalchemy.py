@@ -19,6 +19,8 @@ def _include_mongoalchemy(obj):
     for key in dir(fields):
         if not hasattr(obj, key):
             setattr(obj, key, getattr(fields, key))
+    key = 'DocumentField'
+    setattr(obj, key, getattr(document, key))
 
 def _get_mongo_uri(app):
     app.config.setdefault('MONGOALCHEMY_SERVER', 'localhost')
