@@ -15,7 +15,7 @@ class BookForm(wtf.Form):
 
     def _copy_data_to_form(self):
         self.title.data = self._instance.title
-        self.year.data = self._intance.year
+        self.year.data = self._instance.year
 
     def save(self):
         if self._instance is None:
