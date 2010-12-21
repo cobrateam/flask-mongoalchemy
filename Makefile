@@ -2,8 +2,8 @@ build: bootstrap develop test coverage
 
 release: documentation
 	@python setup.py sdist upload
-	@zip -r docs.zip docs/_build/html/*
-	@echo 'Docs are at docs.zip file'
+	@cd docs/_build/html && zip -r docs.zip *
+	@echo 'Docs are at docs/_build/html/docs.zip file'
 
 bootstrap:
 	@pip install -r requirements.txt
@@ -24,4 +24,5 @@ documentation: clean
 clean:
 	@echo 'Cleaning...'
 	@find . -name '*.pyc' -exec rm -f {} \;
-	@rm -rf cover .coverage docs/_build/* *.egg-info dist build docs.zip
+	@rm -f docs/_build/html/docs.zip
+	@rm -rf cover .coverage docs/_build/* *.egg-info dist build
