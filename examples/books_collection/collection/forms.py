@@ -1,6 +1,8 @@
 from flaskext import wtf
+from collection.documents import Book
 
 class BookForm(wtf.Form):
+    document_class = Book
     title = wtf.TextField(validators=[wtf.Required()])
     year = wtf.IntegerField(validators=[wtf.Required()])
     _instance = None
@@ -16,7 +18,8 @@ class BookForm(wtf.Form):
         self.year.data = self._intance.year
 
     def save(self):
-        if self._instance is not None:
-            self._instance.title = self.title.data
-            self._instance.year = self.year.data
-            self._instance.save()
+        if self._instance is None:
+            self._instance = self.document_class()
+        self._instance.title = self.title.data
+        self._instance.year = self.year.data
+        return self._instance.save()
