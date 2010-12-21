@@ -53,6 +53,8 @@ All you have to do is to create an MongoAlchemy object and use this to declare d
         author = db.DocumentField(Author)
         year = db.IntField()
 
+As you can see, you just need to extend :class:`Document` to create a document.
+
 Now you can create authors and books:
 
 ::
@@ -68,14 +70,14 @@ And you can save them:
     >>> mark_pilgrin.save()
     >>> dive.save()
 
-If you make any change on a document, you can call ``save`` again:
+If you make any change on a document, you can call :meth:`~Document.save` again:
 
 ::
 
     >>> mark_pilgrin.name = 'Mark Pillgrin'
     >>> mark_pilgrin.save()
 
-And you can remove a document from database by calling its ``remove`` method:
+And you can remove a document from database by calling its :meth:`~Document.remove` method:
 
 ::
 
