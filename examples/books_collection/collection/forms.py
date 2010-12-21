@@ -23,3 +23,4 @@ class BookForm(wtf.Form):
         self._instance.title = self.title.data
         self._instance.year = self.year.data
         self._instance.save()
+        return self._instance
