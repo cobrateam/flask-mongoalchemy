@@ -15,3 +15,9 @@ def new_book():
 def list_books():
     books = Book.query.all()
     return render_template('/books/list.html', books=books)
+
+@app.route('/books/delete/<id>')
+def delete_book(id):
+    book = Book.get(id)
+    book.delete()
+    return redirect(url_for('list_books'))
