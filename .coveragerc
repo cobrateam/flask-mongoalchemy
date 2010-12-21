@@ -1,5 +1,6 @@
 [run]
 source=flaskext
+omit=examples
 
 [html]
 directory=cover
