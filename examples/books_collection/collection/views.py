@@ -19,5 +19,5 @@ def list_books():
 @app.route('/books/delete/<id>')
 def delete_book(id):
     book = Book.get(id)
-    book.delete()
+    book.remove()
     return redirect(url_for('list_books'))
