@@ -24,7 +24,7 @@ class MongoDBURITestCase(BaseTestCase):
         from flaskext.mongoalchemy import _get_mongo_uri
         assert_equals(_get_mongo_uri(self.app), 'mongodb://luke:father@localhost:27017')
 
-    def should_be_able_to_use_not_only_localhost_for_server_and_27017_for_password(self):
+    def should_be_able_to_use_not_only_localhost_for_server_and_27017_for_port(self):
         self.app.config['MONGOALCHEMY_SERVER'] = 'database.lukehome.com'
         self.app.config['MONGOALCHEMY_PORT'] = '42'
         from flaskext.mongoalchemy import _get_mongo_uri
