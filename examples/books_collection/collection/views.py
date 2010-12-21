@@ -21,3 +21,9 @@ def delete_book(id):
     book = Book.get(id)
     book.remove()
     return redirect(url_for('list_books'))
+
+@app.route('/books/edit/<id>')
+def edit_book(id):
+    book = Book.get(id)
+    form = BookForm(document=book)
+    return render_template('/books/edit.html', form=form, book=book)
