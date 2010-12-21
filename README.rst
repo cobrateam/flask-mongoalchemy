@@ -38,4 +38,4 @@ Community
 Documentation
 +++++++++++++
 
-    For full documentation, see the online docs at: [soon]
+    For full documentation, see the online docs at: `<http://packages.python.org/Flask-MongoAlchemy/>`_.
