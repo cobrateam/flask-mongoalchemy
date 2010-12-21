@@ -24,7 +24,7 @@ If you prefer, you can use the last source version by cloning git repository:
 
 ::
 
-    $ git clone https://github.com/franciscosouza/flask-mongoalchemy.git
+    $ git clone https://github.com/cobrateam/flask-mongoalchemy.git
     $ cd flask-mongoalchemy
     $ [sudo] python setup.py develop
 
@@ -67,6 +67,19 @@ And you can save them:
 
     >>> mark_pilgrin.save()
     >>> dive.save()
+
+If you make any change on a document, you can call ``save`` again:
+
+::
+
+    >>> mark_pilgrin.name = 'Mark Pillgrin'
+    >>> mark_pilgrin.save()
+
+And you can remove a document from database by calling its ``remove`` method:
+
+::
+
+    >>> dive.remove()
 
 Configuration values
 --------------------
@@ -118,6 +131,6 @@ Indices and tables
 * :ref:`search`
 
 .. _Flask: http://flask.pocoo.org
-.. _Github: http://github.com/franciscosouza/flask-mongoalchemy
+.. _Github: http://github.com/cobrateam/flask-mongoalchemy
 .. _MongoDB: http://mongodb.org
 .. _MongoAlchemy: http://mongoalchemy.org
