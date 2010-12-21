@@ -22,4 +22,4 @@ class BookForm(wtf.Form):
             self._instance = self.document_class()
         self._instance.title = self.title.data
         self._instance.year = self.year.data
-        return self._instance.save()
+        self._instance.save()
