@@ -19,4 +19,4 @@ documentation: clean
 clean:
 	@echo 'Cleaning...'
 	@find . -name '*.pyc' -exec rm -f {} \;
-	@rm -rf cover .coverage docs/_build/*
+	@rm -rf cover .coverage docs/_build/* *.egg-info dist build
