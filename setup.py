@@ -14,7 +14,7 @@ Links
 """
 from setuptools import setup
 
-readme = ''
+readme = __doc__
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
