@@ -9,7 +9,7 @@
 
     <ul>
         {% for book in books %}
-            <li>Title: {{ book.title }}; Year: {{ book.year }}</li>
+            <li>Title: {{ book.title }}; Year: {{ book.year }} (Edit | <a href="{{ url_for('delete_book', id=book.mongo_id) }}">Delete</a>)</li>
         {% endfor %}
     </ul>
 {% endblock %}
