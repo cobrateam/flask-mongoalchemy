@@ -14,6 +14,9 @@ Links
 """
 from setuptools import setup
 
+readme = ''
+with open('README.rst') as r:
+    readme = r.read()
 
 setup(
     name='Flask-MongoAlchemy',
@@ -23,7 +26,7 @@ setup(
     author='Francisco Souza',
     author_email='francisco@franciscosouza.net',
     description='Add Flask support for MongoDB using MongoAlchemy.',
-    long_description=__doc__,
+    long_description=readme,
     packages=['flaskext'],
     namespace_packages=['flaskext'],
     zip_safe=False,
