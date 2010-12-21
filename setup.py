@@ -15,8 +15,8 @@ Links
 from setuptools import setup
 
 readme = ''
-with open('README.rst') as r:
-    readme = r.read()
+with open('README.rst') as readme_file:
+    readme = readme_file.read()
 
 setup(
     name='Flask-MongoAlchemy',
