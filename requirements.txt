@@ -8,7 +8,7 @@ http://darcs.idyll.org/~t/projects/pinocchio-latest.tar.gz
 
 # Development
 flask>=0.6
--e git+https://github.com/jeffjenkins/MongoAlchemy.git#egg=MongoAlchemy
+mongoalchemy>=0.7
 pymongo>=1.9
 
 # Documentation
