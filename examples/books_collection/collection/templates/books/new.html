@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+    New book
+{% endblock %}
+
+{% block content %}
+    <h1 id="">New book</h1>
+    <form action="" method="post" accept-charset="utf-8">
+        <p>{{ form.title.label }}: {{ form.title }}</p>
+        <p>{{ form.year.label }}: {{ form.year }}</p>
+        <p><input type="submit" value="Save book"/></p>
+    </form>
+{% endblock %}
