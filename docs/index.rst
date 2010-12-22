@@ -96,7 +96,7 @@ The following configuration values exist for Flask-MongoAlchemy:
 ``MONGOALCHEMY_SERVER``         The MongoDB server.
 
                                 *Default value:* ``localhost``
-``MONGOALCHEMU_PORT``           Port where MongoDB server is listening.
+``MONGOALCHEMY_PORT``           Port where MongoDB server is listening.
 
                                 *Default value:* ``27017``
 ``MONGOALCHEMY_USER``           User for database connection.
