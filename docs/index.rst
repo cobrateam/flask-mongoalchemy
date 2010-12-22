@@ -129,6 +129,7 @@ Customizing query classes
 +++++++++++++++++++++++++
 
 .. autoclass:: BaseQuery
+   :members:
 
 Indices and tables
 ------------------
