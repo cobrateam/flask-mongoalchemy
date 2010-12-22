@@ -47,3 +47,7 @@ class FlaskMongoAlchemyQueryTestCase(BaseTestCase):
         todo2.save()
         searched_todo = self.Todo.query.filter({}).first_or_404()
         assert_equals(todo1, searched_todo)
+
+    def should_provide_a_paginate_method_on_query_object(self):
+        "Should provide a \"paginate()\" method on Query object"
+        assert False
