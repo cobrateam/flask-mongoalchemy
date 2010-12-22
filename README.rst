@@ -46,10 +46,10 @@ Flask-MongoAlchemy 0.2
 ----------------------
 
 * Reverse compatibility broken on ``Document`` class. The ``get()`` method was moved to ``BaseQuery`` class.
-  Here is the code before the change: ::
+  Here the old code, on version ``0.1``: ::
 
     >>> Document.get(mongo_id)
 
-  And the new code: ::
+  And the new code, on version ``0.2``: ::
 
     >>> Document.query.get(mongo_id)
