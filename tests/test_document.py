@@ -48,6 +48,10 @@ class MongoAlchemyDocumentTestCase(BaseTestCase):
         searched_todo = self.Todo.get(todo.mongo_id)
         assert_equals(todo, searched_todo)
 
+    def should_return_None_when_querying_for_a_non_existing_document_on_database(self):
+        searched_todo = self.Todo.get('28g28hg8hd8hdh8sdhsfsdffeww')
+        assert searched_todo is None
+
     def should_be_able_update_a_document_by_calling_its_save_method(self):
         "A document should be able to update itself in the database by calling it's \"save()\" method"
         todo = self.Todo(description=u'Reinvent the world')
