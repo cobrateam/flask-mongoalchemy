@@ -97,13 +97,44 @@ class MongoAlchemy(object):
         self.Document._session = self.session
 
 class BaseQuery(query.Query):
-    pass
+    """Base class for custom user query classes.
+
+    This class provides some methods and can be extended to provide a customized query class to a user document.
+
+    Here an example: ::
+
+        from flaskext.mongoalchemy import BaseQuery
+        from application import db
+
+        class MyCustomizedQuery(BaseQuery):
+
+            def get_johns(self):
+                return self.filter(self.document_class.first_name == John)
+
+        class Person(db.Document):
+            query_class = MyCustomizedQuery
+            name = db.StringField()"""
+
+    def __init__(self, the_type, session):
+        """Initializes the ``BaseQuery``.
+
+        If you are extending BaseQuery, you should **always** call this init method via ``super``.
+
+        Here an example:
+
+            class MyQuery(BaseQuery):
+
+                def __init__(self, *args, **kwargs):
+                    super(MyQuery, self).__init__(*args, **kwargs)
+
+        This class is instantiated automatically by Flask-MongoAlchemy, don't provide anything new to your ``__init__`` method."""
+        pass
 
 class Document(document.Document):
     "Base class for custom user documents."
 
     #: the query class used. The :attr:`query` attribute is an instance
-    #: of this class. By default :class:BaseQuery is used.
+    #: of this class. By default :class:`BaseQuery` is used.
     query_class = BaseQuery
 
     #: an instance of :attr:`query_class`. Used to query the database
