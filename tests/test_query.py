@@ -2,6 +2,7 @@ from tests import BaseTestCase
 from tests.helpers import _make_todo_document
 from flaskext import mongoalchemy
 from flask import Flask
+from nose.tools import assert_equals
 
 class FlaskMongoAlchemyQueryTestCase(BaseTestCase):
     "Flask-MongoAlchemy BaseQuery class"
@@ -24,3 +25,8 @@ class FlaskMongoAlchemyQueryTestCase(BaseTestCase):
         self.mocker.replay()
         searched_todo = self.Todo.query.get_or_404('9heuafahashoa8ehf')
         self.mocker.verify()
+
+        todo = self.Todo(description=u'Start something')
+        todo.save()
+        searched_todo = self.Todo.query.get_or_404(todo.mongo_id)
+        assert_equals(todo, searched_todo)
