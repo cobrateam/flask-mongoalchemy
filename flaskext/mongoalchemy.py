@@ -153,7 +153,7 @@ class Document(document.Document):
     def get(cls, mongo_id):
         """Returns a document instance from its mongo_id"""
         query = cls._session.query(cls)
-        return query.filter(cls.mongo_id==mongo_id).first()
+        return query.filter({'mongo_id' : mongo_id}).first()
 
     def __cmp__(self, other):
         if isinstance(other, type(self)) and self.has_id() and other.has_id():
