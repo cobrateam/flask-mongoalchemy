@@ -119,11 +119,14 @@ Configuration
 .. autoclass:: MongoAlchemy
    :members:
 
-Documents and queries
-+++++++++++++++++++++
+Documents
++++++++++
 
 .. autoclass:: Document
    :members:
+
+Customizing query classes
++++++++++++++++++++++++++
 
 .. autoclass:: BaseQuery
 
