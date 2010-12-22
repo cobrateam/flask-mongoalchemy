@@ -14,6 +14,7 @@ from mongoalchemy import query
 from mongoalchemy import document
 from mongoalchemy import session
 from mongoalchemy import fields
+from flask import abort
 
 def _include_mongoalchemy(obj):
     for key in dir(fields):
@@ -130,7 +131,17 @@ class BaseQuery(query.Query):
                 super(MyQuery, self).__init__(*args, **kwargs)
 
     This class is instantiated automatically by Flask-MongoAlchemy, don't provide anything new to your ``__init__`` method."""
-    pass
+
+    def __init__(self, type, session):
+        super(BaseQuery, self).__init__(type, session)
+
+    def get_or_404(self, mongo_id):
+        """Like :meth:~`Document.get` method, but aborts with 404 if not found instead of
+        returning `None`"""
+        document = self.type.get(mongo_id)
+        if document is None:
+            abort(404)
+        return document
 
 class Document(document.Document):
     "Base class for custom user documents."
