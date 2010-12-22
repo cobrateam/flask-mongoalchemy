@@ -115,6 +115,10 @@ class BaseQuery(query.Query):
             query_class = MyCustomizedQuery
             name = db.StringField()
 
+    And you will be able to query the Person model this way: ::
+
+        >>> johns = Person.query.get_johns().first()
+
     *Note:* If you are extending BaseQuery and writing an ``__init__`` method,
     you should **always** call this class __init__ via ``super`` keyword.
 
