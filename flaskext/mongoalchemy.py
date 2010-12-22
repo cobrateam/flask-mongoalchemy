@@ -136,9 +136,17 @@ class BaseQuery(query.Query):
         super(BaseQuery, self).__init__(type, session)
 
     def get_or_404(self, mongo_id):
-        """Like :meth:`~Document.get` method, but aborts with 404 if not found instead of
+        """Like :meth:`~Document.get` method but aborts with 404 if not found instead of
         returning `None`"""
         document = self.type.get(mongo_id)
+        if document is None:
+            abort(404)
+        return document
+
+    def first_or_404(self):
+        """Like :meth:`first` method but aborts with 404 if not found instead of
+        returning `None`"""
+        document = self.first()
         if document is None:
             abort(404)
         return document
