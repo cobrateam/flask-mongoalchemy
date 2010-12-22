@@ -144,8 +144,8 @@ class BaseQuery(query.Query):
         return document
 
     def first_or_404(self):
-        """Like :meth:`first` method but aborts with 404 if not found instead of
-        returning `None`"""
+        """Returns the first result of this query, or aborts with 404 if the result
+        doesn't contain any row"""
         document = self.first()
         if document is None:
             abort(404)
@@ -174,7 +174,8 @@ class Document(document.Document):
 
     @classmethod
     def get(cls, mongo_id):
-        """Returns a document instance from its mongo_id"""
+        """Returns a document instance from its ``mongo_id`` or ``None``
+        if not found"""
         query = cls._session.query(cls)
         return query.filter({'mongo_id' : mongo_id}).first()
 
