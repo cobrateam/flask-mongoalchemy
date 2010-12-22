@@ -109,7 +109,7 @@ class BaseQuery(query.Query):
         class MyCustomizedQuery(BaseQuery):
 
             def get_johns(self):
-                return self.filter(self.document_class.first_name == John)
+                return self.filter({ 'first_name' : 'John' })
 
         class Person(db.Document):
             query_class = MyCustomizedQuery
