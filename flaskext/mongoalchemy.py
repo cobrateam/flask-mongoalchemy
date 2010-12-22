@@ -113,22 +113,20 @@ class BaseQuery(query.Query):
 
         class Person(db.Document):
             query_class = MyCustomizedQuery
-            name = db.StringField()"""
+            name = db.StringField()
 
-    def __init__(self, the_type, session):
-        """Initializes the ``BaseQuery``.
+    *Note:* If you are extending BaseQuery and writing an ``__init__`` method,
+    you should **always** call this class __init__ via ``super`` keyword.
 
-        If you are extending BaseQuery, you should **always** call this init method via ``super``.
+    Here an example: ::
 
-        Here an example:
+        class MyQuery(BaseQuery):
 
-            class MyQuery(BaseQuery):
+            def __init__(self, *args, **kwargs):
+                super(MyQuery, self).__init__(*args, **kwargs)
 
-                def __init__(self, *args, **kwargs):
-                    super(MyQuery, self).__init__(*args, **kwargs)
-
-        This class is instantiated automatically by Flask-MongoAlchemy, don't provide anything new to your ``__init__`` method."""
-        pass
+    This class is instantiated automatically by Flask-MongoAlchemy, don't provide anything new to your ``__init__`` method."""
+    pass
 
 class Document(document.Document):
     "Base class for custom user documents."
