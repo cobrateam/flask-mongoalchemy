@@ -21,7 +21,6 @@ class FlaskMongoAlchemyQueryTestCase(BaseTestCase):
         "Should provide a \"get_or_404()\" method on Query object"
         abort = self.mocker.replace('flask.abort')
         abort(404)
-        self.mocker.result('Aborted with 404 status code.')
         self.mocker.replay()
         searched_todo = self.Todo.query.get_or_404('9heuafahashoa8ehf')
         self.mocker.verify()
