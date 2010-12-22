@@ -1,12 +1,8 @@
 from tests import BaseTestCase
+from tests.helpers import _make_todo_document
 from flask import Flask
 from flaskext import mongoalchemy
 from nose.tools import assert_equals, assert_not_equals
-
-def _make_todo_document(db):
-    class Todo(db.Document):
-        description = db.StringField()
-    return Todo
 
 class MongoAlchemyDocumentTestCase(BaseTestCase):
     "MongoAlchemy documents tests"
