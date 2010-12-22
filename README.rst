@@ -5,6 +5,10 @@ Flask-MongoAlchemy
 
 `Flask <http://flask.pocoo.org>`_ support for `MongoDB <http://mongodb.org>`_ using `MongoAlchemy <http://mongoalchemy.org>`_.
 
+Documentation
++++++++++++++
+
+    For full documentation, see the online docs at: `<http://packages.python.org/Flask-MongoAlchemy/>`_.
 
 Development
 +++++++++++
@@ -35,7 +39,17 @@ Community
 
 #cobrateam on chanel irc.freenode.net
 
-Documentation
-+++++++++++++
+Changelog
++++++++++
 
-    For full documentation, see the online docs at: `<http://packages.python.org/Flask-MongoAlchemy/>`_.
+Flask-MongoAlchemy 0.2
+----------------------
+
+* Reverse compatibility broken on ``Document`` class. The ``get()`` method was moved to ``BaseQuery`` class.
+  Here is the code before the change: ::
+
+    >>> Document.get(mongo_id)
+
+  And the new code: ::
+
+    >>> Document.query.get(mongo_id)
