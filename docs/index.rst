@@ -8,7 +8,7 @@ Welcome to Flask MongoAlchemy's documentation!
 
 .. module:: flaskext.mongoalchemy
 
-Flask-MongoAlchemy adds support for `MongoDB`_ on `Flask`_ using `MongoAlchemy`_. Source code and issue tracking at `Github`_.
+Flask-MongoAlchemy adds support for `MongoDB`_ on `Flask`_ using `MongoAlchemy`_. Source code and issue tracking at `Github`_. If you want to get started, check the `example sourcecode <http://github.com/cobrateam/flask-mongoalchemy/tree/master/examples>`_ out.
 
 Installation
 ------------
