@@ -98,7 +98,7 @@ class MongoAlchemy(object):
         self.Document._session = self.session
 
 class Pagination(object):
-    pass
+    """Internal helper class returned by :meth:`~BaseQuery.paginate`."""
 
 class BaseQuery(query.Query):
     """Base class for custom user query classes.

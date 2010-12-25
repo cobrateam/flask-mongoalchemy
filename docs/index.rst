@@ -125,10 +125,13 @@ Documents
 .. autoclass:: Document
    :members:
 
-Customizing query classes
-+++++++++++++++++++++++++
+Queries and pagination
+++++++++++++++++++++++
 
 .. autoclass:: BaseQuery
+   :members:
+
+.. autoclass:: Pagination
    :members:
 
 Indices and tables
