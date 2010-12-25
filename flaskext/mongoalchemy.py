@@ -97,6 +97,9 @@ class MongoAlchemy(object):
         self.session = session.Session.connect(app.config.get('MONGOALCHEMY_DATABASE'), host=uri)
         self.Document._session = self.session
 
+class Pagination(object):
+    pass
+
 class BaseQuery(query.Query):
     """Base class for custom user query classes.
 
@@ -150,6 +153,22 @@ class BaseQuery(query.Query):
         if document is None:
             abort(404)
         return document
+
+    def paginate(self, page, per_page=20, error_out=True):
+        """Returns ``per_page`` items from page ``page`` By default, it will
+        abort with 404 if no items were found and the page was larger than 1.
+        This behaviour can be disabled by setting ``error_out`` to ``False``.
+
+        Returns a :class:`Pagination` object."""
+        if page < 1 and error_out:
+            abort(404)
+
+        items = self.skip(page * per_page).limit(per_page).all()
+
+        if len(items) < 1 and page != 1 and error_out:
+            abort(404)
+
+        return Pagination()
 
 class Document(document.Document):
     "Base class for custom user documents."
