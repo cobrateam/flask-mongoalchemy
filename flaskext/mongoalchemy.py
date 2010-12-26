@@ -101,7 +101,7 @@ class Pagination(object):
     """Internal helper class returned by :meth:`~BaseQuery.paginate`."""
 
     def __init__(self, query, page, per_page, total, items):
-        #: query object that was used to create this
+        #: query object used to create this
         #: pagination object.
         self.query = query
         #: current page number
