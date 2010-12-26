@@ -55,3 +55,5 @@ Flask-MongoAlchemy 0.2
   And the new code, on version ``0.2``: ::
 
     >>> Document.query.get(mongo_id)
+
+* Added ``get_or_404``, ``first_or_404`` and ``paginate`` methods on ``BaseQuery`` class. Check the `documentation <http://packages.python.org/Flask-MongoAlchemy>`_ to know how to use them :)
