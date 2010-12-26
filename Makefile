@@ -2,6 +2,7 @@ build: bootstrap develop test coverage
 
 release: zip_docs
 	@python setup.py sdist upload
+	@python setup.py bdist_egg upload
 	@echo 'Released :)'
 
 zip_docs: documentation
@@ -27,5 +28,4 @@ documentation: clean
 clean:
 	@echo 'Cleaning...'
 	@find . -name '*.pyc' -exec rm -f {} \;
-	@rm -f docs/_build/html/docs.zip
 	@rm -rf cover .coverage docs/_build/* *.egg-info dist build
