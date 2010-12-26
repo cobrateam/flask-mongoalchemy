@@ -1,5 +1,6 @@
 from mocker import MockerTestCase
 from flask import Flask
+from werkzeug.exceptions import NotFound
 from flaskext import mongoalchemy
 from tests.helpers import _make_todo_document
 
@@ -31,3 +32,18 @@ class BaseAppTestCase(BaseTestCase):
     def teardown(self):
         for todo in self.Todo.query.all():
             todo.remove()
+
+    def _replace_flask_abort(self):
+        """Replaces flask.abort function using mocker"""
+        abort = self.mocker.replace('flask.abort')
+        abort(404)
+        self.mocker.replay()
+
+    def _replace_flask_abort_raising_exception(self, calls=1):
+        """Replaces flask.abort function using mocker"""
+        abort = self.mocker.replace('flask.abort')
+        abort(404)
+        self.mocker.count(calls)
+        self.mocker.throw(NotFound)
+        self.mocker.replay()
+
