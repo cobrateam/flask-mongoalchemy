@@ -12,9 +12,10 @@ def new_book():
     return render_template('/books/new.html', form=form)
 
 @app.route('/books')
-def list_books():
-    books = Book.query.all()
-    return render_template('/books/list.html', books=books)
+@app.route('/books/<int:page>')
+def list_books(page=1):
+    pagination = Book.query.paginate(page=page, per_page=5)
+    return render_template('/books/list.html', pagination=pagination)
 
 @app.route('/books/delete/<id>')
 def delete_book(id):
