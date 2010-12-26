@@ -16,14 +16,14 @@ def new_book():
 def list_books(page=1):
     title = u'Books list'
     pagination = Book.query.paginate(page=page, per_page=5)
-    return render_template('/books/list.html', pagination=pagination, title=title)
+    return render_template('/books/list_all.html', pagination=pagination, title=title)
 
 @app.route('/books/<letter>')
 @app.route('/books/<letter>/<int:page>')
 def list_books_filtering(letter, page=1):
     title = u'Books starting with %s' % letter.upper()
     pagination = Book.query.starting_with(letter).paginate(page=page, per_page=5)
-    return render_template('/books/list.html', pagination=pagination, title=title)
+    return render_template('/books/list_filtered.html', pagination=pagination, title=title, letter=letter)
 
 @app.route('/books/delete/<id>')
 def delete_book(id):
