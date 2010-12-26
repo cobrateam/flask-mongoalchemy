@@ -131,6 +131,10 @@ class Pagination(object):
         """Returns ``True`` if a previous page exists."""
         return self.page > 1
 
+    def prev(self, error_out=False):
+        """Return a :class:`Pagination` object for the previous page."""
+        return self.query.paginate(self.page - 1, self.per_page, error_out)
+
 class BaseQuery(query.Query):
     """Base class for custom user query classes.
 
