@@ -125,11 +125,14 @@ Documents
 .. autoclass:: Document
    :members:
 
-Queries and pagination
-++++++++++++++++++++++
+Querying
+++++++++
 
 .. autoclass:: BaseQuery
    :members:
+
+Utilities
++++++++++
 
 .. autoclass:: Pagination
    :members:
