@@ -119,6 +119,11 @@ class Pagination(object):
         """The total number of pages"""
         return int(ceil(self.total / float(self.per_page)))
 
+    @property
+    def next_num(self):
+        """The next page number."""
+        return self.page + 1
+
     def has_next(self):
         """Returns ``True`` if a next page exists."""
         return self.page < self.pages
