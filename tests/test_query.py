@@ -1,23 +1,9 @@
-from tests import BaseTestCase
-from tests.helpers import _make_todo_document
-from flaskext import mongoalchemy
-from flask import Flask
+from tests import BaseAppTestCase
 from werkzeug.exceptions import NotFound
 from nose.tools import assert_equals, assert_raises
 
-class FlaskMongoAlchemyQueryTestCase(BaseTestCase):
+class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
     "Flask-MongoAlchemy BaseQuery class"
-
-    def setup(self):
-        self.app = Flask(__name__)
-        self.app.config['MONGOALCHEMY_DATABASE'] = 'testing'
-        self.app.config['TESTING'] = True
-        self.db = mongoalchemy.MongoAlchemy(self.app)
-        self.Todo = _make_todo_document(self.db)
-
-    def teardown(self):
-        for todo in self.Todo.query.all():
-            todo.remove()
 
     def _replace_flask_abort(self):
         """Replaces flask.abort function using mocker"""
