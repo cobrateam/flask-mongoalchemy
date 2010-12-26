@@ -132,6 +132,11 @@ class Pagination(object):
         """Return a :class:`Pagination` object for the next page."""
         return self.query.paginate(self.page + 1, self.per_page, error_out)
 
+    @property
+    def prev_num(self):
+        """The previous page number."""
+        return self.page - 1
+
     def has_prev(self):
         """Returns ``True`` if a previous page exists."""
         return self.page > 1

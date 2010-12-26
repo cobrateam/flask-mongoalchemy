@@ -87,3 +87,7 @@ class FlaskMongoAlchemyPaginationTestCase(BaseTestCase):
     def should_provide_the_number_of_the_next_page(self):
         pagination = self.Todo.query.filter({}).paginate(page=1)
         assert_equals(pagination.next_num, 2)
+
+    def should_provide_the_number_of_the_previous_page(self):
+        pagination = self.Todo.query.filter({}).paginate(page=2)
+        assert_equals(pagination.prev_num, 1)
