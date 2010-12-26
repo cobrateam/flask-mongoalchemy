@@ -5,20 +5,6 @@ from nose.tools import assert_equals, assert_raises
 class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
     "Flask-MongoAlchemy BaseQuery class"
 
-    def _replace_flask_abort(self):
-        """Replaces flask.abort function using mocker"""
-        abort = self.mocker.replace('flask.abort')
-        abort(404)
-        self.mocker.replay()
-
-    def _replace_flask_abort_raising_exception(self, calls=1):
-        """Replaces flask.abort function using mocker"""
-        abort = self.mocker.replace('flask.abort')
-        abort(404)
-        self.mocker.count(calls)
-        self.mocker.throw(NotFound)
-        self.mocker.replay()
-
     def should_provide_a_get_method_on_query_object(self):
         "Should provide a \"get()\" method on Query object"
         todo = self.Todo(description=u'Start something very new')
