@@ -183,10 +183,15 @@ class BaseQuery(query.Query):
     def __init__(self, type, session):
         super(BaseQuery, self).__init__(type, session)
 
+    def get(self, mongo_id):
+        """Returns a :class:`Document` instance from its ``mongo_id`` or ``None``
+        if not found"""
+        return self.filter({'mongo_id' : mongo_id}).first()
+
     def get_or_404(self, mongo_id):
-        """Like :meth:`~Document.get` method but aborts with 404 if not found instead of
+        """Like :meth:`get` method but aborts with 404 if not found instead of
         returning `None`"""
-        document = self.type.get(mongo_id)
+        document = self.get(mongo_id)
         if document is None:
             abort(404)
         return document
@@ -235,13 +240,6 @@ class Document(document.Document):
         """Removes the document itself from database."""
         self._session.remove(self)
         self._session.flush()
-
-    @classmethod
-    def get(cls, mongo_id):
-        """Returns a document instance from its ``mongo_id`` or ``None``
-        if not found"""
-        query = cls._session.query(cls)
-        return query.filter({'mongo_id' : mongo_id}).first()
 
     def __cmp__(self, other):
         if isinstance(other, type(self)) and self.has_id() and other.has_id():

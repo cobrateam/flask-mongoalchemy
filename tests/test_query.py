@@ -33,6 +33,18 @@ class FlaskMongoAlchemyQueryTestCase(BaseTestCase):
         self.mocker.throw(NotFound)
         self.mocker.replay()
 
+    def should_provide_a_get_method_on_query_object(self):
+        "Should provide a \"get()\" method on Query object"
+        todo = self.Todo(description=u'Start something very new')
+        todo.save()
+        searched_todo = self.Todo.query.get(todo.mongo_id)
+        assert_equals(todo, searched_todo)
+
+    def should_return_None_when_querying_for_a_non_existing_document_on_database(self):
+        "\"get()\" method should return None when querying for a non-existing document"
+        searched_todo = self.Todo.query.get('28g28hg8hd8hdh8sdhsfsdffeww')
+        assert searched_todo is None
+
     def should_provide_a_get_or_404_method_on_query_object(self):
         "Should provide a \"get_or_404()\" method on Query object"
         self._replace_flask_abort()
