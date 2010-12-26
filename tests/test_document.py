@@ -1,22 +1,8 @@
-from tests import BaseTestCase
-from tests.helpers import _make_todo_document
-from flask import Flask
-from flaskext import mongoalchemy
+from tests import BaseAppTestCase
 from nose.tools import assert_equals, assert_not_equals
 
-class MongoAlchemyDocumentTestCase(BaseTestCase):
+class MongoAlchemyDocumentTestCase(BaseAppTestCase):
     "MongoAlchemy documents tests"
-
-    def setup(self):
-        self.app = Flask(__name__)
-        self.app.config['MONGOALCHEMY_DATABASE'] = 'testing'
-        self.app.config['TESTING'] = True
-        self.db = mongoalchemy.MongoAlchemy(self.app)
-        self.Todo = _make_todo_document(self.db)
-
-    def teardown(self):
-        for todo in self.Todo.query.all():
-            todo.remove()
 
     def should_be_able_to_save_a_document_on_database_by_calling_its_save_method(self):
         "A document should be able to save itself in the database by calling it's \"save()\" method"
