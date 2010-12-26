@@ -10,6 +10,7 @@
 """
 from __future__ import absolute_import
 
+from math import ceil
 from mongoalchemy import query
 from mongoalchemy import document
 from mongoalchemy import session
@@ -113,6 +114,23 @@ class Pagination(object):
         #: list of items for the current page
         self.items = items
 
+    @property
+    def pages(self):
+        """The total number of pages"""
+        return int(ceil(self.total / float(self.per_page)))
+
+    def has_next(self):
+        """Returns ``True`` if a next page exists."""
+        return self.page < self.pages
+
+    def next(self, error_out=False):
+        """Return a :class:`Pagination` object for the next page."""
+        return self.query.paginate(self.page + 1, self.per_page, error_out)
+
+    def has_prev(self):
+        """Returns ``True`` if a previous page exists."""
+        return self.page > 1
+
 class BaseQuery(query.Query):
     """Base class for custom user query classes.
 
@@ -176,7 +194,7 @@ class BaseQuery(query.Query):
         if page < 1 and error_out:
             abort(404)
 
-        items = self.skip(page * per_page).limit(per_page).all()
+        items = self.skip((page - 1) * per_page).limit(per_page).all()
 
         if len(items) < 1 and page != 1 and error_out:
             abort(404)
