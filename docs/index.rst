@@ -74,7 +74,7 @@ If you make any change on a document, you can call :meth:`~Document.save` again:
 
 ::
 
-    >>> mark_pilgrin.name = 'Mark Pillgrin'
+    >>> mark_pilgrin.name = 'Mark Stalone'
     >>> mark_pilgrin.save()
 
 And you can remove a document from database by calling its :meth:`~Document.remove` method:
@@ -82,6 +82,24 @@ And you can remove a document from database by calling its :meth:`~Document.remo
 ::
 
     >>> dive.remove()
+
+Another basic operation is querying for documents. Every document has a ``query`` class property. It's very simple to use it:
+
+::
+
+    >>> mark = Author.query.get('76726')
+    >>> mark.name = 'Mark Pilgrin'
+    >>> mark.save()
+
+You also can use the ``filter`` method instead of the :meth:`~BaseQuery.get` method:
+
+::
+
+    >>> mark = Author.query.filter({ 'name' : 'Mark Pilgrin' }).first()
+    >>> mark.name = 'Steve Jobs'
+    >>> mark.save()
+
+Want to do and know more? Dive deep in `API`_ docs.
 
 Configuration values
 --------------------
