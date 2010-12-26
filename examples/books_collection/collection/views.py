@@ -17,6 +17,12 @@ def list_books(page=1):
     pagination = Book.query.paginate(page=page, per_page=5)
     return render_template('/books/list.html', pagination=pagination)
 
+@app.route('/books/<letter>')
+@app.route('/books/<letter>/<int:page>')
+def list_books_filtering(letter, page=1):
+    pagination = Book.query.starting_with(letter).paginate(page=page, per_page=5)
+    return render_template('/books/list.html', pagination=pagination)
+
 @app.route('/books/delete/<id>')
 def delete_book(id):
     book = Book.query.get_or_404(id)
