@@ -33,10 +33,11 @@ class BaseAppTestCase(BaseTestCase):
         for todo in self.Todo.query.all():
             todo.remove()
 
-    def _replace_flask_abort(self):
+    def _replace_flask_abort(self, calls=1):
         """Replaces flask.abort function using mocker"""
         abort = self.mocker.replace('flask.abort')
         abort(404)
+        self.mocker.count(calls)
         self.mocker.replay()
 
     def _replace_flask_abort_raising_exception(self, calls=1):
