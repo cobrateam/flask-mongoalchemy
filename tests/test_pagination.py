@@ -1,28 +1,17 @@
-from tests import BaseTestCase
-from tests.helpers import _make_todo_document
-from flask import Flask
+from tests import BaseAppTestCase
 from werkzeug.exceptions import NotFound
-from flaskext import mongoalchemy
 from nose.tools import assert_equals, raises
 
-class FlaskMongoAlchemyPaginationTestCase(BaseTestCase):
+class FlaskMongoAlchemyPaginationTestCase(BaseAppTestCase):
     "Flask-MongoAlchemy Pagination class"
 
     def setup(self):
-        self.app = Flask(__name__)
-        self.app.config['MONGOALCHEMY_DATABASE'] = 'testing'
-        self.app.config['TESTING'] = True
-        self.db = mongoalchemy.MongoAlchemy(self.app)
-        self.Todo = _make_todo_document(self.db)
+        super(FlaskMongoAlchemyPaginationTestCase, self).setup()
 
         # saving 30 Todo's
         for i in range(4, 34):
             todo = self.Todo(description=u'Write my %dth book' % i)
             todo.save()
-
-    def teardown(self):
-        for todo in self.Todo.query.all():
-            todo.remove()
 
     def _replace_flask_abort(self):
         """Replaces flask.abort function using mocker"""
