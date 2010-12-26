@@ -13,20 +13,6 @@ class FlaskMongoAlchemyPaginationTestCase(BaseAppTestCase):
             todo = self.Todo(description=u'Write my %dth book' % i)
             todo.save()
 
-    def _replace_flask_abort(self):
-        """Replaces flask.abort function using mocker"""
-        abort = self.mocker.replace('flask.abort')
-        abort(404)
-        self.mocker.replay()
-
-    def _replace_flask_abort_raising_exception(self, calls=1):
-        """Replaces flask.abort function using mocker"""
-        abort = self.mocker.replace('flask.abort')
-        abort(404)
-        self.mocker.count(calls)
-        self.mocker.throw(NotFound)
-        self.mocker.replay()
-
     def should_provide_a_pages_property(self):
         pagination = self.Todo.query.filter({}).paginate(page=1)
         assert_equals(pagination.pages, 2)
