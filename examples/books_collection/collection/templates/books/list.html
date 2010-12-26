@@ -7,8 +7,6 @@
 {% block content %}
     <h1 id="">{{ title }}</h1>
 
-    <a href="{{ url_for('new_book') }}">Add new book</a>
-
     <ul>
         {% for book in pagination.items %}
             <li>Title: {{ book.title }}; Year: {{ book.year }} (<a href="{{ url_for('edit_book', id=book.mongo_id) }}">Edit</a> | <a href="{{ url_for('delete_book', id=book.mongo_id) }}">Delete</a>)</li>

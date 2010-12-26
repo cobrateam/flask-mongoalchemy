@@ -4,6 +4,15 @@
         <title>{% block title %}{% endblock %} | Books collection</title>
     </head>
     <body>
+        <div class="menu">
+            <a href="{{ url_for('new_book') }}">Add new book</a> |
+            <a href="{{ url_for('list_books') }}">List all books</a></br></br>
+            Books by letter:
+
+            {% for letter in letters %}
+                <a href="{{ url_for('list_books_filtering', letter=letter) }}">{{ letter }}</a>
+            {% endfor %}
+        </div>
         {% block content %}
         {% endblock %}
     </body>
