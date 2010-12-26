@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Books list
+    {{ title }}
 {% endblock %}
 
 {% block content %}
-    <h1 id="">Books list</h1>
+    <h1 id="">{{ title }}</h1>
 
     <a href="{{ url_for('new_book') }}">Add new book</a>
 
