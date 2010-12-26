@@ -100,6 +100,19 @@ class MongoAlchemy(object):
 class Pagination(object):
     """Internal helper class returned by :meth:`~BaseQuery.paginate`."""
 
+    def __init__(self, query, page, per_page, total, items):
+        #: query object that was used to create this
+        #: pagination object.
+        self.query = query
+        #: current page number
+        self.page = page
+        #: number of items to be displayed per page
+        self.per_page = per_page
+        #: total number of items matching the query
+        self.total = total
+        #: list of items for the current page
+        self.items = items
+
 class BaseQuery(query.Query):
     """Base class for custom user query classes.
 
@@ -168,7 +181,7 @@ class BaseQuery(query.Query):
         if len(items) < 1 and page != 1 and error_out:
             abort(404)
 
-        return Pagination()
+        return Pagination(self, page, per_page, self.count(), items)
 
 class Document(document.Document):
     "Base class for custom user documents."
