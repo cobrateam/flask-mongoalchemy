@@ -33,13 +33,13 @@ def delete_book(id):
 
 @app.route('/books/edit/<id>')
 def edit_book(id):
-    book = Book.get(id)
+    book = Book.query.get(id)
     form = BookForm(document=book)
     return render_template('/books/edit.html', form=form, book=book)
 
 @app.route('/books/edit/<id>', methods=['POST'])
 def update_book(id):
-    book = Book.get(id)
+    book = Book.query.get(id)
     form = BookForm()
     if form.validate_on_submit():
         form.instance = book
