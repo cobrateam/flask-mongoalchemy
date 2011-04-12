@@ -74,6 +74,18 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
         db.init_app(self.app)
         assert db.session is not None
 
+    def should_contain_a_not_none_query(self):
+        "Document.query should never be None"
+        from flaskext.mongoalchemy import MongoAlchemy
+        db = MongoAlchemy()
+        db.init_app(self.app)
+
+        class Person(db.Document):
+            name = db.StringField()
+
+        p = Person()
+        assert p.query is not None
+
     @raises(ImproperlyConfiguredError)
     def test_shout_not_be_able_to_work_without_providing_a_database_name(self):
         from flaskext.mongoalchemy import MongoAlchemy
