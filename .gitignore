@@ -5,6 +5,7 @@
 
 .coverage
 cover
+nose.xml
 
 build
 docs/_build
