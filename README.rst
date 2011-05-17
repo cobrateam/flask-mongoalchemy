@@ -47,7 +47,7 @@ Changelog
 Flask-MongoAlchemy 0.3
 ----------------------
 
- * Introduced update and remove queries support
+ * Introduced update queries support
 
 Flask-MongoAlchemy 0.2
 ----------------------
