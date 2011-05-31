@@ -2,7 +2,6 @@ build: bootstrap develop test coverage
 
 release: zip_docs
 	@python setup.py sdist upload
-	@python setup.py bdist_egg upload
 	@echo 'Released :)'
 
 zip_docs: documentation
