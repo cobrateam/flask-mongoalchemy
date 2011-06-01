@@ -29,3 +29,9 @@ class MongoDBURITestCase(BaseTestCase):
         self.app.config['MONGOALCHEMY_PORT'] = '42'
         from flaskext.mongoalchemy import _get_mongo_uri
         assert_equals(_get_mongo_uri(self.app), 'mongodb://database.lukehome.com:42')
+
+    def should_be_able_to_generate_an_uri_with_options(self):
+        self.app.config['MONGOALCHEMY_SERVER'] = 'database.lukehome.com'
+        self.app.config['MONGOALCHEMY_OPTIONS'] = 'safe=true'
+        from flaskext.mongoalchemy import _get_mongo_uri
+        assert_equals(_get_mongo_uri(self.app), 'mongodb://database.lukehome.com:27017/?safe=true')
