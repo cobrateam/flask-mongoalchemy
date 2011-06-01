@@ -29,6 +29,7 @@ def _get_mongo_uri(app):
     app.config.setdefault('MONGOALCHEMY_PORT', '27017')
     app.config.setdefault('MONGOALCHEMY_USER', None)
     app.config.setdefault('MONGOALCHEMY_PASSWORD', None)
+    app.config.setdefault('MONGOALCHEMY_OPTIONS', None)
 
     auth = ''
 
@@ -38,8 +39,14 @@ def _get_mongo_uri(app):
             auth = '%s:%s' % (auth, app.config.get('MONGOALCHEMY_PASSWORD'))
         auth += '@'
 
-    uri = 'mongodb://%s%s:%s' %(auth, app.config.get('MONGOALCHEMY_SERVER'),
-                                app.config.get('MONGOALCHEMY_PORT'))
+    options = ''
+
+    if app.config.get('MONGOALCHEMY_OPTIONS') is not None:
+        options = "/?%s" % app.config.get('MONGOALCHEMY_OPTIONS')
+
+    uri = 'mongodb://%s%s:%s%s' % (auth, app.config.get('MONGOALCHEMY_SERVER'),
+                                   app.config.get('MONGOALCHEMY_PORT'), options)
+
     return uri
 
 class ImproperlyConfiguredError(Exception):
