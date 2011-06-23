@@ -165,7 +165,7 @@ class BaseQuery(query.Query):
         class MyCustomizedQuery(BaseQuery):
 
             def get_johns(self):
-                return self.filter({ 'first_name' : 'John' })
+                return self.filter(self.type.first_name == 'John')
 
         class Person(db.Document):
             query_class = MyCustomizedQuery
@@ -193,7 +193,7 @@ class BaseQuery(query.Query):
     def get(self, mongo_id):
         """Returns a :class:`Document` instance from its ``mongo_id`` or ``None``
         if not found"""
-        return self.filter({'mongo_id' : mongo_id}).first()
+        return self.filter(self.type.mongo_id == mongo_id).first()
 
     def get_or_404(self, mongo_id):
         """Like :meth:`get` method but aborts with 404 if not found instead of
