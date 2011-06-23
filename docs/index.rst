@@ -95,7 +95,7 @@ You also can use the ``filter`` method instead of the :meth:`~BaseQuery.get` met
 
 ::
 
-    >>> mark = Author.query.filter({ 'name' : 'Mark Pilgrin' }).first()
+    >>> mark = Author.query.filter(Author.name == 'Mark Pilgrin').first()
     >>> mark.name = 'Steve Jobs'
     >>> mark.save()
 
