@@ -1,7 +1,7 @@
 Flask-MongoAlchemy
 ==================
 
-    Version 0.3
+    Version 0.3.1
 
 `Flask <http://flask.pocoo.org>`_ support for `MongoDB <http://mongodb.org>`_ using `MongoAlchemy <http://mongoalchemy.org>`_.
 
@@ -43,6 +43,11 @@ Community
 
 Changelog
 +++++++++
+
+Flask-MongoAlchemy 0.3.1
+------------------------
+
+ * [bugfix] method ``get`` on ``Query`` objects was never returning the object
 
 Flask-MongoAlchemy 0.3
 ----------------------
