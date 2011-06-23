@@ -11,10 +11,11 @@
 from __future__ import absolute_import
 
 from math import ceil
-from mongoalchemy import query
 from mongoalchemy import document
-from mongoalchemy import session
+from mongoalchemy import exceptions
 from mongoalchemy import fields
+from mongoalchemy import session
+from mongoalchemy import query
 from flask import abort
 
 def _include_mongoalchemy(obj):
@@ -193,7 +194,10 @@ class BaseQuery(query.Query):
     def get(self, mongo_id):
         """Returns a :class:`Document` instance from its ``mongo_id`` or ``None``
         if not found"""
-        return self.filter(self.type.mongo_id == mongo_id).first()
+        try:
+            return self.filter(self.type.mongo_id == mongo_id).first()
+        except exceptions.BadValueException:
+            return None
 
     def get_or_404(self, mongo_id):
         """Like :meth:`get` method but aborts with 404 if not found instead of

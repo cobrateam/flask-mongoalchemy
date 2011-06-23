@@ -55,6 +55,11 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         todo.save()
 
         self._replace_flask_abort_raising_exception(calls=2)
-        assert_raises(NotFound, self.Todo.query.filter({u'description' : u'Do anything weird'}).paginate, page=2)
-        assert_raises(NotFound, self.Todo.query.filter({u'description' : u'Do anything good'}).paginate, page=0)
+        assert_raises(NotFound, self.Todo.query.filter(self.Todo.description == u'Do anything weird').paginate, page=2)
+        assert_raises(NotFound, self.Todo.query.filter(self.Todo.description == u'Do anything good').paginate, page=0)
         self.mocker.verify()
+
+    def should_return_None_for_wrong_formated_objectids(self):
+        "\"get()\" method should return None if the ObjectID is in wrong format"
+        todo = self.Todo.query.get("blasphemy")
+        assert todo is None
