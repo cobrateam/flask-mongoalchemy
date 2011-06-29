@@ -44,6 +44,11 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.3.2
+------------------------
+
+ * Compability with Flask 0.7
+
 Flask-MongoAlchemy 0.3.1
 ------------------------
 
