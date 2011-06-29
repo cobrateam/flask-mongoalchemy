@@ -7,8 +7,8 @@ http://darcs.idyll.org/~t/projects/figleaf-0.6.1.tar.gz
 http://darcs.idyll.org/~t/projects/pinocchio-latest.tar.gz
 
 # Development
-flask>=0.6
-mongoalchemy>=0.7
+flask>=0.7
+mongoalchemy>=0.8
 pymongo>=1.9
 
 # Documentation
