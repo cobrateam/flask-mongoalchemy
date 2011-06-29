@@ -32,7 +32,7 @@ setup(
     zip_safe=False,
     platforms='any',
     install_requires=[
-        'Flask==0.6.1',
+        'Flask==0.7',
         'MongoAlchemy==0.8',
         'pymongo==1.10.1',
     ],
