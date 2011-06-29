@@ -1,8 +1,6 @@
 Flask-MongoAlchemy
 ==================
 
-    Version 0.3.1
-
 `Flask <http://flask.pocoo.org>`_ support for `MongoDB <http://mongodb.org>`_ using `MongoAlchemy <http://mongoalchemy.org>`_.
 
 Documentation
