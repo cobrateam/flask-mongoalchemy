@@ -42,6 +42,11 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.3.3
+------------------------
+
+ * Fixed dependencies on ``setup.py``
+
 Flask-MongoAlchemy 0.3.2
 ------------------------
 
