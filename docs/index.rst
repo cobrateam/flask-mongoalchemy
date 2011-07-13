@@ -35,7 +35,7 @@ Usage
 
 It is very easy and fun to use Flask-MongoAlchemy to proxy between Python and MongoDB.
 
-All you have to do is create an MongoAlchemy object and use it to declare documents. Here is a complete example:
+All you have to do is create a MongoAlchemy object and use it to declare documents. Here is a complete example:
 
 ::
 
