@@ -8,19 +8,19 @@ Welcome to Flask MongoAlchemy's documentation!
 
 .. module:: flaskext.mongoalchemy
 
-Flask-MongoAlchemy adds support for `MongoDB`_ on `Flask`_ using `MongoAlchemy`_. Source code and issue tracking at `Github`_. If you want to get started, check the `example sourcecode <http://github.com/cobrateam/flask-mongoalchemy/tree/master/examples>`_ out.
+Flask-MongoAlchemy adds support for `MongoDB`_ on `Flask`_ using `MongoAlchemy`_. Source code and issue tracking are available at `Github`_. If you want to get started, check out the `example source code <http://github.com/cobrateam/flask-mongoalchemy/tree/master/examples>`_.
 
 Installation
 ------------
 
-You can easily install using *pip* or *easy_install*:
+You can easily install using `pip` or `easy_install`:
 
 ::
 
     $ [sudo] pip install Flask-MongoAlchemy
     $ [sudo] easy_install Flask-MongoAlchemy
 
-If you prefer, you can use the last source version by cloning git repository:
+If you prefer, you may use the latest source version by cloning the following git repository:
 
 ::
 
@@ -28,14 +28,14 @@ If you prefer, you can use the last source version by cloning git repository:
     $ cd flask-mongoalchemy
     $ [sudo] python setup.py develop
 
-Make sure you have MongoDB installed for use it.
+Make sure you have MongoDB installed to use it.
 
 Usage
 -----
 
 It is very easy and fun to use Flask-MongoAlchemy to proxy between Python and MongoDB.
 
-All you have to do is to create an MongoAlchemy object and use this to declare documents. Here a complete example:
+All you have to do is create an MongoAlchemy object and use it to declare documents. Here is a complete example:
 
 ::
 
@@ -53,7 +53,7 @@ All you have to do is to create an MongoAlchemy object and use this to declare d
         author = db.DocumentField(Author)
         year = db.IntField()
 
-As you can see, you just need to extend :class:`Document` to create a document.
+As you can see, extending the :class:`Document` is all you need to create a document.
 
 Now you can create authors and books:
 
@@ -63,21 +63,21 @@ Now you can create authors and books:
     >>> mark_pilgrin = Author(name='Mark Pilgrin')
     >>> dive = Book(title='Dive Into Python', author=mark_pilgrin, year=2004)
 
-And you can save them:
+And save them:
 
 ::
 
     >>> mark_pilgrin.save()
     >>> dive.save()
 
-If you make any change on a document, you can call :meth:`~Document.save` again:
+If you make any changes on a document, you may call :meth:`~Document.save` again:
 
 ::
 
     >>> mark_pilgrin.name = 'Mark Stalone'
     >>> mark_pilgrin.save()
 
-And you can remove a document from database by calling its :meth:`~Document.remove` method:
+And you can remove a document from the database by calling its :meth:`~Document.remove` method:
 
 ::
 
@@ -99,12 +99,12 @@ You also can use the ``filter`` method instead of the :meth:`~BaseQuery.get` met
     >>> mark.name = 'Steve Jobs'
     >>> mark.save()
 
-Want to do and know more? Dive deep in `API`_ docs.
+Do you want to go further? Dive deep into the `API`_ docs.
 
 Configuration values
 --------------------
 
-The following configuration values exist for Flask-MongoAlchemy:
+The following configuration values are present in Flask-MongoAlchemy:
 
 .. tabularcolumns:: |p{6.5cm}|p{8.5cm}|
 
@@ -114,7 +114,7 @@ The following configuration values exist for Flask-MongoAlchemy:
 ``MONGOALCHEMY_SERVER``         The MongoDB server.
 
                                 *Default value:* ``localhost``
-``MONGOALCHEMY_PORT``           Port where MongoDB server is listening.
+``MONGOALCHEMY_PORT``           Listening port of the MongoDB server.
 
                                 *Default value:* ``27017``
 ``MONGOALCHEMY_USER``           User for database connection.
