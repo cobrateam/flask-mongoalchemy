@@ -103,7 +103,10 @@ class MongoAlchemy(object):
             raise ImproperlyConfiguredError("You should provide a database name (the MONGOALCHEMY_DATABASE setting).")
 
         uri = _get_mongo_uri(app)
-        self.session = session.Session.connect(app.config.get('MONGOALCHEMY_DATABASE'), host=uri)
+        self.session = session.Session.connect(app.config.get('MONGOALCHEMY_DATABASE'),
+                                               safe=app.config.get('MONGOALCHEMY_SAFE_SESSION', False),
+                                               host=uri,
+                                               )
         self.Document._session = self.session
 
 class Pagination(object):
@@ -242,9 +245,9 @@ class Document(document.Document):
     #: for instances of this document.
     query = None
 
-    def save(self):
+    def save(self, safe=None):
         """Saves the document itself in the database."""
-        self._session.insert(self)
+        self._session.insert(self, safe=safe)
         self._session.flush()
 
     def remove(self):
