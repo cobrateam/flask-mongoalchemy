@@ -33,7 +33,7 @@ setup(
     platforms='any',
     install_requires=[
         'Flask>=0.7',
-        'MongoAlchemy==0.8',
+        'MongoAlchemy>=0.9',
         'pymongo==1.10.1',
     ],
     classifiers=[
