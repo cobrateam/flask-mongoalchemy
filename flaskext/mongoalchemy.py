@@ -250,9 +250,9 @@ class Document(document.Document):
         self._session.insert(self, safe=safe)
         self._session.flush()
 
-    def remove(self):
+    def remove(self, safe=None):
         """Removes the document itself from database."""
-        self._session.remove(self)
+        self._session.remove(self, safe=None)
         self._session.flush()
 
     def __cmp__(self, other):
