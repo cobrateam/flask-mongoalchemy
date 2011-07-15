@@ -123,6 +123,13 @@ The following configuration values are present in Flask-MongoAlchemy:
 ``MONGOALCHEMY_PASSWORD``       Password for database connection.
 
                                 *Default value:* ``None``
+
+``MONGOALCHEMY_SAFE_SESSION``   Use session in safe mode. When in safe
+                                mode, all methods like ``save`` and
+                                ``delete`` wait for the operation to
+                                complete.
+
+                                *Default value:* ``False``
 =============================== =========================================
 
 API
