@@ -251,7 +251,11 @@ class Document(document.Document):
         self._session.flush()
 
     def remove(self, safe=None):
-        """Removes the document itself from database."""
+        """Removes the document itself from database.
+
+        The optional ``safe`` argument is a boolean that specifies if the
+        remove method should wait for the operation to complete.
+        """
         self._session.remove(self, safe=None)
         self._session.flush()
 
