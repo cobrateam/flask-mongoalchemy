@@ -20,7 +20,7 @@ with open('README.rst') as readme_file:
 
 setup(
     name='Flask-MongoAlchemy',
-    version='0.3.3',
+    version='0.4',
     url='http://github.com/cobrateam/flask-mongoalchemy',
     license='BSD',
     author='Francisco Souza',
