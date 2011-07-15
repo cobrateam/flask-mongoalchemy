@@ -42,6 +42,12 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.4
+----------------------
+
+ * Documentation improvements
+ * Support for safe or unsafe sessions and operations
+
 Flask-MongoAlchemy 0.3.3
 ------------------------
 
