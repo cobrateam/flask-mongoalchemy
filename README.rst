@@ -42,6 +42,12 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.4.1
+------------------------
+
+ * MongoAlchemy 0.9 as dependency
+ * [bugfix] safe session operations on connect, save and remove
+
 Flask-MongoAlchemy 0.4
 ----------------------
 
