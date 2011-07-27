@@ -34,7 +34,7 @@ setup(
     install_requires=[
         'Flask>=0.7',
         'MongoAlchemy>=0.9',
-        'pymongo==1.10.1',
+        'pymongo>=1.10.1',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
