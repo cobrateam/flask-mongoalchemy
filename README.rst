@@ -42,6 +42,11 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.4.3
+------------------------
+
+ * [bugfix] added database to MongoDB URI for authenticated connectinos
+
 Flask-MongoAlchemy 0.4.1
 ------------------------
 
