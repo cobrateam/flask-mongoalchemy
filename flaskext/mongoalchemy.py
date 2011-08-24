@@ -33,6 +33,7 @@ def _get_mongo_uri(app):
     app.config.setdefault('MONGOALCHEMY_OPTIONS', None)
 
     auth = ''
+    database = ''
 
     if app.config.get('MONGOALCHEMY_USER') is not None:
         auth = app.config.get('MONGOALCHEMY_USER')
@@ -40,13 +41,15 @@ def _get_mongo_uri(app):
             auth = '%s:%s' % (auth, app.config.get('MONGOALCHEMY_PASSWORD'))
         auth += '@'
 
+        database = app.config.get('MONGOALCHEMY_DATABASE')
+
     options = ''
 
     if app.config.get('MONGOALCHEMY_OPTIONS') is not None:
-        options = "/?%s" % app.config.get('MONGOALCHEMY_OPTIONS')
+        options = "?%s" % app.config.get('MONGOALCHEMY_OPTIONS')
 
-    uri = 'mongodb://%s%s:%s%s' % (auth, app.config.get('MONGOALCHEMY_SERVER'),
-                                   app.config.get('MONGOALCHEMY_PORT'), options)
+    uri = 'mongodb://%s%s:%s/%s%s' % (auth, app.config.get('MONGOALCHEMY_SERVER'),
+                                   app.config.get('MONGOALCHEMY_PORT'), database, options)
 
     return uri
 
