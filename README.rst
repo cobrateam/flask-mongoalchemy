@@ -47,6 +47,11 @@ Flask-MongoAlchemy 0.4.3
 
  * [bugfix] added database to MongoDB URI for authenticated connectinos
 
+Flask-MongoAlchemy 0.4.2
+------------------------
+
+ * Fixed pymongo dependency in setup.py
+
 Flask-MongoAlchemy 0.4.1
 ------------------------
 
