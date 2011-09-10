@@ -11,11 +11,7 @@
 from __future__ import absolute_import
 
 from math import ceil
-from mongoalchemy import document
-from mongoalchemy import exceptions
-from mongoalchemy import fields
-from mongoalchemy import session
-from mongoalchemy import query
+from mongoalchemy import document, exceptions, fields, session, query
 from flask import abort
 
 def _include_mongoalchemy(obj):
