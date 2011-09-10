@@ -14,6 +14,8 @@ from math import ceil
 from mongoalchemy import document, exceptions, fields, session, query
 from flask import abort
 
+from flaskext.mongoalchemy.meta import make_document_class
+
 
 def _include_mongoalchemy(obj):
     for key in dir(fields):
@@ -89,7 +91,7 @@ class MongoAlchemy(object):
     """
 
     def __init__(self, app=None):
-        self.Document = Document
+        self.Document = make_document_class(self, Document)
         self.Document.query = _QueryField(self)
 
         _include_mongoalchemy(self)
