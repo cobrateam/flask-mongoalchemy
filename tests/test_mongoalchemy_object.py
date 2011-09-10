@@ -22,8 +22,10 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
 
     def should_provide_a_query_object_for_queries_on_a_document(self):
         db = MongoAlchemy(self.app)
+
         class Todo(db.Document):
             description = db.StringField()
+
         assert_true(isinstance(Todo.query, BaseQuery))
 
     def should_provide_a_session_object_on_mongoalchemy_instance(self):
@@ -32,6 +34,7 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
 
     def should_be_possible_to_create_a_customized_query_class(self):
         db = MongoAlchemy(self.app)
+
         class Query(BaseQuery):
             pass
 
@@ -43,6 +46,7 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
 
     def should_set_None_to_query_attribute_on_Document_when_queryclass_does_not_extends_BaseQuery(self):
         db = MongoAlchemy()
+
         class Query(object):
             pass
 

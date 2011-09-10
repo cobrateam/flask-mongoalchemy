@@ -14,12 +14,14 @@ from math import ceil
 from mongoalchemy import document, exceptions, fields, session, query
 from flask import abort
 
+
 def _include_mongoalchemy(obj):
     for key in dir(fields):
         if not hasattr(obj, key):
             setattr(obj, key, getattr(fields, key))
     key = 'DocumentField'
     setattr(obj, key, getattr(document, key))
+
 
 def _get_mongo_uri(app):
     app.config.setdefault('MONGOALCHEMY_SERVER', 'localhost')
@@ -49,9 +51,11 @@ def _get_mongo_uri(app):
 
     return uri
 
+
 class ImproperlyConfiguredError(Exception):
     """Exception for error on configurations."""
     pass
+
 
 class _QueryField(object):
 
@@ -63,6 +67,7 @@ class _QueryField(object):
             return cls.query_class(cls, self.db.session)
         except Exception, e:
             return None
+
 
 class MongoAlchemy(object):
     """Class used to control the MongoAlchemy integration to a Flask application.
@@ -107,6 +112,7 @@ class MongoAlchemy(object):
                                                host=uri,
                                                )
         self.Document._session = self.session
+
 
 class Pagination(object):
     """Internal helper class returned by :meth:`~BaseQuery.paginate`."""
@@ -154,6 +160,7 @@ class Pagination(object):
     def prev(self, error_out=False):
         """Return a :class:`Pagination` object for the previous page."""
         return self.query.paginate(self.page - 1, self.per_page, error_out)
+
 
 class BaseQuery(query.Query):
     """Base class for custom user query classes.
@@ -232,6 +239,7 @@ class BaseQuery(query.Query):
             abort(404)
 
         return Pagination(self, page, per_page, self.count(), items)
+
 
 class Document(document.Document):
     "Base class for custom user documents."
