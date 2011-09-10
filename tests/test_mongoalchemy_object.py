@@ -95,6 +95,10 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
 
     def should_be_able_to_create_two_decoupled_mongoalchemy_instances(self):
         app = Flask('new_test')
+        app.config['MONGOALCHEMY_DATABASE'] = 'my_database'
+        db1 = MongoAlchemy(app)
+        db2 = MongoAlchemy(app)
+        assert db1.Document is not db2.Document, "two document should be totally different"
 
     def teardown(self):
         del(self.app)
