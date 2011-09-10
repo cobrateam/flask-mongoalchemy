@@ -25,4 +25,4 @@ documentation: clean
 
 clean:
 	@echo 'Cleaning...'
-	git clean -dfx
+	git clean -dfX
