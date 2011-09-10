@@ -102,7 +102,7 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
         app.config['MONGOALCHEMY_DATABASE'] = 'my_database'
         db1 = MongoAlchemy(app)
         db2 = MongoAlchemy(app)
-        assert db1.Document is not db2.Document, "two document should be totally different"
+        assert db1.Document is not db2.Document, "two documents should not be the same object"
 
     def teardown(self):
         del(self.app)
