@@ -10,3 +10,4 @@ nose.xml
 build
 docs/_build
 dist
+.ropeproject
