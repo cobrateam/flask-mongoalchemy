@@ -37,7 +37,6 @@ setup(
         'pymongo>=1.10.1',
     ],
     classifiers=[
-        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
