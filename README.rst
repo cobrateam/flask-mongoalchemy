@@ -42,6 +42,11 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.5
+----------------------
+
+ * Capability to deal with multiple Mongo sessions
+
 Flask-MongoAlchemy 0.4.3
 ------------------------
 
