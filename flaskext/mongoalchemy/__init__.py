@@ -16,6 +16,8 @@ from flask import abort
 
 from flaskext.mongoalchemy.meta import make_document_class
 
+__version__ = '0.5.2'
+
 
 def _include_mongoalchemy(obj):
     for key in dir(fields):
