@@ -41,7 +41,8 @@ def _get_mongo_uri(app):
             auth = '%s:%s' % (auth, app.config.get('MONGOALCHEMY_PASSWORD'))
         auth += '@'
 
-        database = app.config.get('MONGOALCHEMY_DATABASE')
+        if not app.config.get('MONGOALCHEMY_SERVER_AUTH', True):
+            database = app.config.get('MONGOALCHEMY_DATABASE')
 
     options = ''
 

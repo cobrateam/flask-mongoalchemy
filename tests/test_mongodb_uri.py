@@ -13,14 +13,15 @@ class MongoDBURITestCase(BaseTestCase):
         from flaskext.mongoalchemy import _get_mongo_uri
         assert_equals(_get_mongo_uri(self.app), 'mongodb://localhost:27017/')
 
-    def should_be_able_to_generate_an_uri_using_only_the_username_without_password_and_include_the_database(self):
+    def should_be_able_to_generate_an_uri_using_only_the_username_without_password_and_not_include_the_database_for_server_based_auth(self):
         self.app.config['MONGOALCHEMY_USER'] = 'luke'
         from flaskext.mongoalchemy import _get_mongo_uri
-        assert_equals(_get_mongo_uri(self.app), 'mongodb://luke@localhost:27017/test')
+        assert_equals(_get_mongo_uri(self.app), 'mongodb://luke@localhost:27017/')
 
-    def should_be_able_to_generate_an_uri_using_an_username_and_a_password_including_the_database(self):
+    def should_be_able_to_generate_an_uri_using_an_username_and_a_password_including_the_database_for_db_based_auth(self):
         self.app.config['MONGOALCHEMY_USER'] = 'luke'
         self.app.config['MONGOALCHEMY_PASSWORD'] = 'father'
+        self.app.config['MONGOALCHEMY_SERVER_AUTH'] = False
         from flaskext.mongoalchemy import _get_mongo_uri
         assert_equals(_get_mongo_uri(self.app), 'mongodb://luke:father@localhost:27017/test')
 
