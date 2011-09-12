@@ -101,6 +101,18 @@ You also can use the ``filter`` method instead of the :meth:`~BaseQuery.get` met
 
 Do you want to go further? Dive deep into the `API`_ docs.
 
+Using authenticated connections
+-------------------------------
+
+It's possible to use authentication to connect to a MongoDB server. The authentication can be server based or database based.
+
+The default behavior is to use server based authentication, to use database based authentication, you need to turn off the config
+value ``MONGOALCHEMY_SERVER_AUTH`` (see the next section for more detail on configuration values):
+
+::
+
+    >>> app.config['MONGOALCHEMY_SERVER_AUTH'] = False
+
 Configuration values
 --------------------
 
