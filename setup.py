@@ -27,7 +27,7 @@ setup(
     author_email='francisco@franciscosouza.net',
     description='Add Flask support for MongoDB using MongoAlchemy.',
     long_description=readme,
-    packages=['flaskext'],
+    packages=['flaskext', 'flaskext.mongoalchemy'],
     namespace_packages=['flaskext'],
     zip_safe=False,
     platforms='any',
