@@ -130,6 +130,12 @@ The following configuration values are present in Flask-MongoAlchemy:
                                 complete.
 
                                 *Default value:* ``False``
+
+ ``MONGOALCHEMY_OPTIONS``       Pass extra options to the MongoDB server
+                                when connecting.
+
+                                *e.g.:* safe=true
+
 =============================== =========================================
 
 API
