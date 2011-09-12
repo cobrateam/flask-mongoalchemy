@@ -114,12 +114,15 @@ The following configuration values are present in Flask-MongoAlchemy:
 ``MONGOALCHEMY_SERVER``         The MongoDB server.
 
                                 *Default value:* ``localhost``
+
 ``MONGOALCHEMY_PORT``           Listening port of the MongoDB server.
 
                                 *Default value:* ``27017``
+
 ``MONGOALCHEMY_USER``           User for database connection.
 
                                 *Default value:* ``None``
+
 ``MONGOALCHEMY_PASSWORD``       Password for database connection.
 
                                 *Default value:* ``None``
@@ -135,6 +138,13 @@ The following configuration values are present in Flask-MongoAlchemy:
                                 when connecting.
 
                                 *e.g.:* safe=true
+                                *Default value:* ``None``
+
+ ``MONGOALCHEMY_SERVER_AUTH``   Boolean value indicating to use server based
+                                authentication or not. When ``False``, will use
+                                database based authentication.
+
+                                *Default value:* ``True``
 
 =============================== =========================================
 
