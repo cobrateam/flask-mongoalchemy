@@ -42,6 +42,11 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.5.3
+------------------------
+
+ * [bugfix] fixed a bug on setup.py
+
 Flask-MongoAlchemy 0.5.2
 ------------------------
 

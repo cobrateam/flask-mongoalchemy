@@ -13,7 +13,6 @@ Links
 
 """
 from setuptools import setup
-from flaskext.mongoalchemy import __version__
 
 readme = __doc__
 with open('README.rst') as readme_file:
@@ -21,7 +20,7 @@ with open('README.rst') as readme_file:
 
 setup(
     name='Flask-MongoAlchemy',
-    version=__version__,
+    version='0.5.3',
     url='http://github.com/cobrateam/flask-mongoalchemy',
     license='BSD',
     author='Francisco Souza',
