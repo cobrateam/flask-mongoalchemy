@@ -42,6 +42,12 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.5.2
+------------------------
+
+ * added a configuration value to do user authentication per server or per database
+ * [bugfix] fixed server based authentication
+
 Flask-MongoAlchemy 0.5.1
 ------------------------
 
