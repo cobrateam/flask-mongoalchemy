@@ -60,22 +60,22 @@ Now you can create authors and books:
 ::
 
     >>> from application import Author, Book
-    >>> mark_pilgrin = Author(name='Mark Pilgrin')
-    >>> dive = Book(title='Dive Into Python', author=mark_pilgrin, year=2004)
+    >>> mark_pilgrim = Author(name='Mark Pilgrim')
+    >>> dive = Book(title='Dive Into Python', author=mark_pilgrim, year=2004)
 
 And save them:
 
 ::
 
-    >>> mark_pilgrin.save()
+    >>> mark_pilgrim.save()
     >>> dive.save()
 
 If you make any changes on a document, you may call :meth:`~Document.save` again:
 
 ::
 
-    >>> mark_pilgrin.name = 'Mark Stalone'
-    >>> mark_pilgrin.save()
+    >>> mark_pilgrim.name = 'Mark Stalone'
+    >>> mark_pilgrim.save()
 
 And you can remove a document from the database by calling its :meth:`~Document.remove` method:
 
@@ -88,14 +88,14 @@ Another basic operation is querying for documents. Every document has a ``query`
 ::
 
     >>> mark = Author.query.get('76726')
-    >>> mark.name = 'Mark Pilgrin'
+    >>> mark.name = 'Mark Pilgrim'
     >>> mark.save()
 
 You also can use the ``filter`` method instead of the :meth:`~BaseQuery.get` method:
 
 ::
 
-    >>> mark = Author.query.filter(Author.name == 'Mark Pilgrin').first()
+    >>> mark = Author.query.filter(Author.name == 'Mark Pilgrim').first()
     >>> mark.name = 'Steve Jobs'
     >>> mark.save()
 
