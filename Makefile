@@ -15,7 +15,7 @@ develop:
 	python -c 'from flaskext import mongoalchemy' 2>/dev/null || python setup.py develop
 
 test: clean
-	specloud --config=tests/nose.cfg
+	nosetests --config=tests/nose.cfg
 
 coverage:
 	coverage html
