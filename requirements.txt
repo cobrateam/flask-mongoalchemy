@@ -2,9 +2,6 @@
 nose>=1.0
 coverage>=3.4
 mocker>=1.0
-specloud>=0.4
-http://darcs.idyll.org/~t/projects/figleaf-0.6.1.tar.gz
-http://darcs.idyll.org/~t/projects/pinocchio-latest.tar.gz
 
 # Development
 flask>=0.7

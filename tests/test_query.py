@@ -5,19 +5,19 @@ from nose.tools import assert_equals, assert_raises
 class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
     "Flask-MongoAlchemy BaseQuery class"
 
-    def should_provide_a_get_method_on_query_object(self):
+    def test_should_provide_a_get_method_on_query_object(self):
         "Should provide a \"get()\" method on Query object"
         todo = self.Todo(description=u'Start something very new')
         todo.save()
         searched_todo = self.Todo.query.get(str(todo.mongo_id))
         assert_equals(todo, searched_todo)
 
-    def should_return_None_when_querying_for_a_non_existing_document_on_database(self):
+    def test_should_return_None_when_querying_for_a_non_existing_document_on_database(self):
         "\"get()\" method should return None when querying for a non-existing document"
         searched_todo = self.Todo.query.get('4e038a23e4206650da0000df')
         assert searched_todo is None
 
-    def should_provide_a_get_or_404_method_on_query_object(self):
+    def test_should_provide_a_get_or_404_method_on_query_object(self):
         "Should provide a \"get_or_404()\" method on Query object"
         self._replace_flask_abort()
         searched_todo = self.Todo.query.get_or_404('4e038a23e4206650da0000df')
@@ -28,7 +28,7 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         searched_todo = self.Todo.query.get_or_404(str(todo.mongo_id))
         assert_equals(todo, searched_todo)
 
-    def should_provide_a_first_or_404_method_on_query_object(self):
+    def test_should_provide_a_first_or_404_method_on_query_object(self):
         "Should provide a \"first_or_404()\" method on Query object"
         self._replace_flask_abort()
         searched_todo = self.Todo.query.filter({}).first_or_404()
@@ -41,7 +41,7 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         searched_todo = self.Todo.query.filter({}).first_or_404()
         assert_equals(todo1, searched_todo)
 
-    def should_provide_a_paginate_method_on_query_object(self):
+    def test_should_provide_a_paginate_method_on_query_object(self):
         "Should provide a \"paginate()\" method on Query object which returns a Pagination object"
         for i in range(4, 20):
             todo = self.Todo(description=u'Try something for the %dth time' % i)
@@ -49,7 +49,7 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         from flaskext.mongoalchemy import Pagination
         assert isinstance(self.Todo.query.paginate(page=1, per_page=5), Pagination)
 
-    def should_abort_with_404_when_paginating_an_empty_query(self):
+    def test_should_abort_with_404_when_paginating_an_empty_query(self):
         "\"paginate()\" method should abort with 404 on empty result queries or when any parameter is wrong"
         todo = self.Todo(description=u'Do anything weird')
         todo.save()
@@ -59,7 +59,7 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         assert_raises(NotFound, self.Todo.query.filter(self.Todo.description == u'Do anything good').paginate, page=0)
         self.mocker.verify()
 
-    def should_return_None_for_wrong_formated_objectids(self):
+    def test_should_return_None_for_wrong_formated_objectids(self):
         "\"get()\" method should return None if the ObjectID is in wrong format"
         todo = self.Todo.query.get("blasphemy")
         assert todo is None
