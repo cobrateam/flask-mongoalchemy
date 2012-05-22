@@ -42,6 +42,11 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.5.4
+------------------------
+
+ * [bugfix] fix compatibility with pymongo 2.2
+
 Flask-MongoAlchemy 0.5.3
 ------------------------
 
