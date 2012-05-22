@@ -273,8 +273,5 @@ class Document(document.Document):
         self._session.remove(self, safe=None)
         self._session.flush()
 
-    def __cmp__(self, other):
-        if isinstance(other, type(self)) and self.has_id() and other.has_id():
-            return self.mongo_id.__cmp__(other.mongo_id)
-        else:
-            return -1
+    def __eq__(self, other):
+        return isinstance(other, type(self)) and self.has_id() and other.has_id() and self.mongo_id == other.mongo_id
