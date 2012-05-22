@@ -1,6 +1,5 @@
 from tests import BaseAppTestCase
 from werkzeug.exceptions import NotFound
-from nose.tools import assert_equals, assert_raises
 
 class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
     "Flask-MongoAlchemy BaseQuery class"
@@ -10,7 +9,7 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         todo = self.Todo(description=u'Start something very new')
         todo.save()
         searched_todo = self.Todo.query.get(str(todo.mongo_id))
-        assert_equals(todo, searched_todo)
+        self.assertEqual(todo, searched_todo)
 
     def test_should_return_None_when_querying_for_a_non_existing_document_on_database(self):
         "\"get()\" method should return None when querying for a non-existing document"
@@ -26,7 +25,7 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         todo = self.Todo(description=u'Start something')
         todo.save()
         searched_todo = self.Todo.query.get_or_404(str(todo.mongo_id))
-        assert_equals(todo, searched_todo)
+        self.assertEqual(todo, searched_todo)
 
     def test_should_provide_a_first_or_404_method_on_query_object(self):
         "Should provide a \"first_or_404()\" method on Query object"
@@ -39,7 +38,7 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         todo2 = self.Todo(description=u'Clean the room')
         todo2.save()
         searched_todo = self.Todo.query.filter({}).first_or_404()
-        assert_equals(todo1, searched_todo)
+        self.assertEqual(todo1, searched_todo)
 
     def test_should_provide_a_paginate_method_on_query_object(self):
         "Should provide a \"paginate()\" method on Query object which returns a Pagination object"
@@ -55,8 +54,8 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         todo.save()
 
         self._replace_flask_abort_raising_exception(calls=2)
-        assert_raises(NotFound, self.Todo.query.filter(self.Todo.description == u'Do anything weird').paginate, page=2)
-        assert_raises(NotFound, self.Todo.query.filter(self.Todo.description == u'Do anything good').paginate, page=0)
+        self.assertRaises(NotFound, self.Todo.query.filter(self.Todo.description == u'Do anything weird').paginate, page=2)
+        self.assertRaises(NotFound, self.Todo.query.filter(self.Todo.description == u'Do anything good').paginate, page=0)
         self.mocker.verify()
 
     def test_should_return_None_for_wrong_formated_objectids(self):
