@@ -14,7 +14,7 @@ bootstrap:
 develop:
 	python -c 'from flaskext import mongoalchemy' 2>/dev/null || python setup.py develop
 
-test: clean
+test: bootstrap clean
 	nosetests --config=tests/nose.cfg
 
 coverage:
