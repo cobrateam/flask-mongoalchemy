@@ -1,19 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-    Flask-MongoAlchemy library example
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    A simple example showing the use of Flask-MongoAlchemy.
-
-    If you want to test it:
-
-        - install MongoDB, Flask, MongoAlchemy, pymongo and Flask-MongoAlchemy;
-        - run on terminal:
-            python library.py
-
-    :copyright: (c) 2010 by Francisco Souza.
-    :license: BSD, see LICENSE for more details.
-"""
+# Copyright 2010 flask-mongoalchemy authors. All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
 
 from flask import Flask, request
 from flaskext.mongoalchemy import MongoAlchemy

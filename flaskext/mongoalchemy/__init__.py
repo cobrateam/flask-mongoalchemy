@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-    flaskext.mongoalchemy
-    ~~~~~~~~~~~~~~~~~~~~~
 
-    Adds Flask support for MongoDB using Mongo-Alchemy.
+# Copyright 2010 flask-mongoalchemy authors. All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
 
-    :copyright: (c) 2010 by Francisco Souza.
-    :license: BSD, see LICENSE for more details.
-"""
 from __future__ import absolute_import
 
 from math import ceil
