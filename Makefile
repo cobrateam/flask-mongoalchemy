@@ -11,9 +11,6 @@ zip_docs: documentation
 bootstrap:
 	@pip install -qr requirements.txt
 
-develop:
-	python -c 'from flaskext import mongoalchemy' 2>/dev/null || python setup.py develop
-
 test: bootstrap clean
 	@nosetests --config=tests/nose.cfg
 
