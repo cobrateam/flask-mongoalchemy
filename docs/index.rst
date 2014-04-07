@@ -40,7 +40,7 @@ All you have to do is create a MongoAlchemy object and use it to declare documen
 ::
 
     from flask import Flask
-    from flaskext.mongoalchemy import MongoAlchemy
+    from flask.ext.mongoalchemy import MongoAlchemy
     app = Flask(__name__)
     app.config['MONGOALCHEMY_DATABASE'] = 'library'
     db = MongoAlchemy(app)
