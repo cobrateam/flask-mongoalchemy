@@ -12,7 +12,8 @@ bootstrap:
 	@pip install -qr requirements.txt
 
 test: bootstrap clean
-	@nosetests --config=tests/nose.cfg
+	@coverage run -m unittest discover
+	@coverage report
 
 coverage:
 	coverage html
