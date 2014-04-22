@@ -1,13 +1,7 @@
-*.swp
 *.pyc
-*.pyo
 *.egg-info
-
 .coverage
 cover
-nose.xml
-
 build
 docs/_build
 dist
-.ropeproject
