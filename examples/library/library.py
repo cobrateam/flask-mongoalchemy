@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010 flask-mongoalchemy authors. All rights reserved.
+# Copyright 2014 flask-mongoalchemy authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
 from flask import Flask, request
-from flaskext.mongoalchemy import MongoAlchemy
+from flask.ext.mongoalchemy import MongoAlchemy
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['MONGOALCHEMY_DATABASE'] = 'library'
