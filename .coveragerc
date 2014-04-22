@@ -1,5 +1,5 @@
 [run]
-source=flaskext
+source=flask_mongoalchemy
 omit=examples
 
 [html]
