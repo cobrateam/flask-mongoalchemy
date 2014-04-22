@@ -8,8 +8,8 @@ from __future__ import absolute_import
 
 from mongoalchemy import document
 
-from flaskext.mongoalchemy import Document
-from flaskext.mongoalchemy.meta import make_document_class
+from flask.ext.mongoalchemy import Document
+from flask.ext.mongoalchemy.meta import make_document_class
 from tests import BaseAppTestCase
 
 

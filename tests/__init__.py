@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010 flask-mongoalchemy authors. All rights reserved.
+# Copyright 2014 flask-mongoalchemy authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
+import flask_mongoalchemy as mongoalchemy
 from mocker import MockerTestCase
 from flask import Flask
 from werkzeug.exceptions import NotFound
-from flaskext import mongoalchemy
 from tests.helpers import _make_todo_document
 
 class BaseTestCase(MockerTestCase):

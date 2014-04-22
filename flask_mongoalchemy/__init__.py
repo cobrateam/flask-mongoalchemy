@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010 flask-mongoalchemy authors. All rights reserved.
+# Copyright 2014 flask-mongoalchemy authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
-
-from __future__ import absolute_import
 
 from math import ceil
 from mongoalchemy import document, exceptions, fields, session, query
 from flask import abort
 
-from flaskext.mongoalchemy.meta import make_document_class
+from .meta import make_document_class
 
 
 def _include_mongoalchemy(obj):
@@ -168,7 +166,7 @@ class BaseQuery(query.Query):
 
     Here an example: ::
 
-        from flaskext.mongoalchemy import BaseQuery
+        from flask.ext.mongoalchemy import BaseQuery
         from application import db
 
         class MyCustomizedQuery(BaseQuery):

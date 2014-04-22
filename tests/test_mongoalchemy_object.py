@@ -8,7 +8,7 @@ from flask import Flask
 from mongoalchemy import fields
 from mongoalchemy.session import Session
 
-from flaskext.mongoalchemy import BaseQuery, ImproperlyConfiguredError, MongoAlchemy
+from flask.ext.mongoalchemy import BaseQuery, ImproperlyConfiguredError, MongoAlchemy
 from tests import BaseTestCase
 
 
