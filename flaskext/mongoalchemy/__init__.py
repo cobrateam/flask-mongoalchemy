@@ -27,6 +27,7 @@ def _get_mongo_uri(app):
     app.config.setdefault('MONGOALCHEMY_USER', None)
     app.config.setdefault('MONGOALCHEMY_PASSWORD', None)
     app.config.setdefault('MONGOALCHEMY_OPTIONS', None)
+    app.config.setdefault('MONGOALCHEMY_REPLICA_SET', '')
 
     auth = ''
     database = ''
@@ -109,6 +110,7 @@ class MongoAlchemy(object):
         self.session = session.Session.connect(app.config.get('MONGOALCHEMY_DATABASE'),
                                                safe=app.config.get('MONGOALCHEMY_SAFE_SESSION', False),
                                                host=uri,
+                                               replicaSet=app.config.get('MONGOALCHEMY_REPLICA_SET')
                                                )
         self.Document._session = self.session
 
