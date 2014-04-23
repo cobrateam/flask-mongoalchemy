@@ -158,6 +158,11 @@ The following configuration values are present in Flask-MongoAlchemy:
 
                                 *Default value:* ``True``
 
+ ``MONGOALCHEMY_REPLICA_SET``   Name of the replica set to be used. Empty for
+                                no replica sets.
+
+                                *Default value:* ````
+
 =============================== =========================================
 
 API
