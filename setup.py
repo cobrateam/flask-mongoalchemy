@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010 flask-mongoalchemy authors. All rights reserved.
+# Copyright 2014 flask-mongoalchemy authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
@@ -15,7 +15,7 @@ Links
 
 * `documentation <http://packages.python.org/Flask-MongoAlchemy>`_
 * `development version
-  <http://github.com/franciscosouza/flask-mongoalchemy/zipball/master#egg=Flask-MongoAlchemy-dev>`_
+<http://github.com/cobrateam/flask-mongoalchemy/zipball/master#egg=Flask-MongoAlchemy-dev>`_
 
 """
 from setuptools import setup
@@ -26,21 +26,19 @@ with open('README.rst') as readme_file:
 
 setup(
     name='Flask-MongoAlchemy',
-    version='0.5.4',
+    version='0.6.0',
     url='http://github.com/cobrateam/flask-mongoalchemy',
     license='BSD',
     author='Francisco Souza',
     author_email='francisco@franciscosouza.net',
     description='Add Flask support for MongoDB using MongoAlchemy.',
     long_description=readme,
-    packages=['flaskext', 'flaskext.mongoalchemy'],
-    namespace_packages=['flaskext'],
+    packages=['flask_mongoalchemy'],
     zip_safe=False,
     platforms='any',
     install_requires=[
-        'Flask>=0.7',
-        'MongoAlchemy>=0.9',
-        'pymongo>=1.10.1',
+        'Flask>=0.9',
+        'MongoAlchemy>=0.15',
     ],
     classifiers=[
         'Environment :: Web Environment',
