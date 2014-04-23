@@ -103,6 +103,7 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
         self.assertEqual(app.config['MONGOALCHEMY_PORT'], '27017')
         self.assertEqual(app.config['MONGOALCHEMY_USER'], None)
         self.assertEqual(app.config['MONGOALCHEMY_PASSWORD'], None)
+        self.assertEqual(app.config['MONGOALCHEMY_REPLICA_SET'], '')
 
     def test_should_be_able_to_create_two_decoupled_mongoalchemy_instances(self):
         app = Flask(__name__)
