@@ -7,6 +7,7 @@
 from tests import BaseAppTestCase
 from werkzeug.exceptions import NotFound
 
+
 class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
     "Flask-MongoAlchemy BaseQuery class"
 
@@ -47,7 +48,6 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         self.assertEqual(todo1, searched_todo)
 
     def test_should_provide_a_paginate_method_on_query_object(self):
-        "Should provide a \"paginate()\" method on Query object which returns a Pagination object"
         for i in range(4, 20):
             todo = self.Todo(description=u'Try something for the %dth time' % i)
             todo.save()
@@ -55,16 +55,18 @@ class FlaskMongoAlchemyQueryTestCase(BaseAppTestCase):
         assert isinstance(self.Todo.query.paginate(page=1, per_page=5), Pagination)
 
     def test_should_abort_with_404_when_paginating_an_empty_query(self):
-        "\"paginate()\" method should abort with 404 on empty result queries or when any parameter is wrong"
         todo = self.Todo(description=u'Do anything weird')
         todo.save()
 
         self._replace_flask_abort_raising_exception(calls=2)
-        self.assertRaises(NotFound, self.Todo.query.filter(self.Todo.description == u'Do anything weird').paginate, page=2)
-        self.assertRaises(NotFound, self.Todo.query.filter(self.Todo.description == u'Do anything good').paginate, page=0)
+        self.assertRaises(NotFound,
+                          self.Todo.query.filter(self.Todo.description ==
+                                                 u'Do anything weird').paginate, page=2)
+        self.assertRaises(NotFound,
+                          self.Todo.query.filter(self.Todo.description ==
+                                                 u'Do anything good').paginate, page=0)
         self.mocker.verify()
 
     def test_should_return_None_for_wrong_formated_objectids(self):
-        "\"get()\" method should return None if the ObjectID is in wrong format"
         todo = self.Todo.query.get("blasphemy")
         assert todo is None

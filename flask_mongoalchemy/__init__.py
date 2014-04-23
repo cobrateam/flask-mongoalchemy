@@ -44,7 +44,7 @@ def _get_mongo_uri(app):
         options = "?%s" % app.config.get('MONGOALCHEMY_OPTIONS')
 
     uri = 'mongodb://%s%s:%s/%s%s' % (auth, app.config.get('MONGOALCHEMY_SERVER'),
-                                   app.config.get('MONGOALCHEMY_PORT'), database, options)
+                                      app.config.get('MONGOALCHEMY_PORT'), database, options)
 
     return uri
 
@@ -62,15 +62,16 @@ class _QueryField(object):
     def __get__(self, obj, cls):
         try:
             return cls.query_class(cls, self.db.session)
-        except Exception, e:
+        except Exception:
             return None
 
 
 class MongoAlchemy(object):
     """Class used to control the MongoAlchemy integration to a Flask application.
 
-    You can use this by providing the Flask app on instantiation or by calling an :meth:`init_app` method
-    an instance object of `MongoAlchemy`. Here a sample of providing the application on instantiation: ::
+    You can use this by providing the Flask app on instantiation or by calling
+    an :meth:`init_app` method an instance object of `MongoAlchemy`. Here an
+    example of providing the application on instantiation: ::
 
         app = Flask(__name__)
         db = MongoAlchemy(app)
@@ -101,13 +102,14 @@ class MongoAlchemy(object):
         MongoDB setup. Never use a database in the context of an application not
         initialized that way or connections will leak."""
         if 'MONGOALCHEMY_DATABASE' not in app.config:
-            raise ImproperlyConfiguredError("You should provide a database name (the MONGOALCHEMY_DATABASE setting).")
+            raise ImproperlyConfiguredError("You should provide a database name "
+                                            "(the MONGOALCHEMY_DATABASE setting).")
 
         uri = _get_mongo_uri(app)
         self.session = session.Session.connect(app.config.get('MONGOALCHEMY_DATABASE'),
-                                               safe=app.config.get('MONGOALCHEMY_SAFE_SESSION', False),
-                                               host=uri,
-                                               )
+                                               safe=app.config.get('MONGOALCHEMY_SAFE_SESSION',
+                                                                   False),
+                                               host=uri)
         self.Document._session = self.session
 
 
@@ -160,9 +162,11 @@ class Pagination(object):
 
 
 class BaseQuery(query.Query):
-    """Base class for custom user query classes.
+    """
+    Base class for custom user query classes.
 
-    This class provides some methods and can be extended to provide a customized query class to a user document.
+    This class provides some methods and can be extended to provide a
+    customized query class to a user document.
 
     Here an example: ::
 
@@ -192,7 +196,9 @@ class BaseQuery(query.Query):
             def __init__(self, *args, **kwargs):
                 super(MyQuery, self).__init__(*args, **kwargs)
 
-    This class is instantiated automatically by Flask-MongoAlchemy, don't provide anything new to your ``__init__`` method."""
+    This class is instantiated automatically by Flask-MongoAlchemy, don't
+    provide anything new to your ``__init__`` method.
+    """
 
     def __init__(self, type, session):
         super(BaseQuery, self).__init__(type, session)
@@ -268,4 +274,6 @@ class Document(document.Document):
         self._session.flush()
 
     def __eq__(self, other):
-        return isinstance(other, type(self)) and self.has_id() and other.has_id() and self.mongo_id == other.mongo_id
+        return isinstance(other, type(self)) and \
+            self.has_id() and other.has_id() and \
+            self.mongo_id == other.mongo_id

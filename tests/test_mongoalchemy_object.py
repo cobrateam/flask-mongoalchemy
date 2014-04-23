@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010 flask-mongoalchemy authors. All rights reserved.
+# Copyright 2014 flask-mongoalchemy authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
@@ -9,7 +9,7 @@ from mongoalchemy import fields
 from mongoalchemy.session import Session
 
 from flask.ext.mongoalchemy import BaseQuery, ImproperlyConfiguredError, MongoAlchemy
-from tests import BaseTestCase
+from . import BaseTestCase
 
 
 class MongoAlchemyObjectTestCase(BaseTestCase):
@@ -51,7 +51,7 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
 
         self.assertIsInstance(Todo.query, Query)
 
-    def test_should_set_None_to_query_attribute_on_Document_when_queryclass_does_not_extends_BaseQuery(self):
+    def test_invalid_query_is_none(self):
         db = MongoAlchemy()
 
         class Query(object):
@@ -95,7 +95,7 @@ class MongoAlchemyObjectTestCase(BaseTestCase):
             app = Flask(__name__)
             MongoAlchemy(app)
 
-    def test_should_be_able_to_work_without_providing_server_port_user_and_password_for_database_connection(self):
+    def test_loads_without_database_connection_data(self):
         app = Flask(__name__)
         app.config['MONGOALCHEMY_DATABASE'] = 'my_database'
         MongoAlchemy(app)

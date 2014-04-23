@@ -7,6 +7,7 @@
 from tests import BaseAppTestCase
 from werkzeug.exceptions import NotFound
 
+
 class FlaskMongoAlchemyPaginationTestCase(BaseAppTestCase):
     "Flask-MongoAlchemy Pagination class"
 
@@ -25,34 +26,29 @@ class FlaskMongoAlchemyPaginationTestCase(BaseAppTestCase):
         self.assertEqual(pagination.pages, 1)
 
     def test_should_provide_a_has_next_method(self):
-        "Should provide a \"has_next()\" method on Pagination object which returns True when there is a next page, and False when there is not"
         pagination = self.Todo.query.filter({}).paginate(page=1)
         assert pagination.has_next()
         pagination = self.Todo.query.filter({}).paginate(page=1, per_page=50)
-        assert pagination.has_next() == False
+        assert pagination.has_next() is False
 
     def test_should_provide_a_next_method(self):
-        "Should provide a \"next()\" method on Pagination objects which returns a Pagination object for the next page"
         pagination = self.Todo.query.filter({}).paginate(page=1)
         next_page = pagination.next()
         self.assertEqual(next_page.page, 2)
         self.assertEqual(len(next_page.items), 10)
-
         self._replace_flask_abort()
         next_page.next(error_out=True)
         self.mocker.verify()
 
     def test_should_provide_a_has_prev_method(self):
-        "Should provide a \"has_prev()\" method on Pagination object which returns True when there is a previous page, and False when there is not"
         pagination = self.Todo.query.filter({}).paginate(page=2)
         assert pagination.has_prev()
         pagination = self.Todo.query.filter({}).paginate(page=1, per_page=50)
-        assert pagination.has_prev() == False
+        assert pagination.has_prev() is False
         pagination = self.Todo.query.filter({}).paginate(page=1)
-        assert pagination.has_prev() == False
+        assert pagination.has_prev() is False
 
     def test_should_provide_prev_method(self):
-        "Should provide a \"prev()\" method on Pagination objects which returns a Pagination object for the previous page"
         pagination = self.Todo.query.filter({}).paginate(page=2)
         previous_page = pagination.prev()
         self.assertEqual(pagination.page, 2)

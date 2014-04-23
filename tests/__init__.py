@@ -10,6 +10,7 @@ from flask import Flask
 from werkzeug.exceptions import NotFound
 from tests.helpers import _make_todo_document
 
+
 class BaseTestCase(MockerTestCase):
 
     def setUp(self):
@@ -25,6 +26,7 @@ class BaseTestCase(MockerTestCase):
 
     def teardown(self):
         pass
+
 
 class BaseAppTestCase(BaseTestCase):
 
@@ -53,4 +55,3 @@ class BaseAppTestCase(BaseTestCase):
         self.mocker.count(calls)
         self.mocker.throw(NotFound)
         self.mocker.replay()
-
