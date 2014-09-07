@@ -19,33 +19,33 @@ def _include_mongoalchemy(obj):
     setattr(obj, key, getattr(document, key))
 
 
-def _get_mongo_uri(app):
-    app.config.setdefault('MONGOALCHEMY_SERVER', 'localhost')
-    app.config.setdefault('MONGOALCHEMY_PORT', '27017')
-    app.config.setdefault('MONGOALCHEMY_USER', None)
-    app.config.setdefault('MONGOALCHEMY_PASSWORD', None)
-    app.config.setdefault('MONGOALCHEMY_OPTIONS', None)
-    app.config.setdefault('MONGOALCHEMY_REPLICA_SET', '')
+def _get_mongo_uri(app, key=lambda x:'MONGOALCHEMY_%s' % x):
+    app.config.setdefault(key('SERVER'), 'localhost')
+    app.config.setdefault(key('PORT'), '27017')
+    app.config.setdefault(key('USER'), None)
+    app.config.setdefault(key('PASSWORD'), None)
+    app.config.setdefault(key('OPTIONS'), None)
+    app.config.setdefault(key('REPLICA_SET'), '')
 
     auth = ''
     database = ''
 
-    if app.config.get('MONGOALCHEMY_USER') is not None:
-        auth = app.config.get('MONGOALCHEMY_USER')
-        if app.config.get('MONGOALCHEMY_PASSWORD') is not None:
-            auth = '%s:%s' % (auth, app.config.get('MONGOALCHEMY_PASSWORD'))
+    if app.config.get(key('USER')) is not None:
+        auth = app.config.get(key('USER'))
+        if app.config.get(key('PASSWORD')) is not None:
+            auth = '%s:%s' % (auth, app.config.get(key('PASSWORD')))
         auth += '@'
 
-        if not app.config.get('MONGOALCHEMY_SERVER_AUTH', True):
-            database = app.config.get('MONGOALCHEMY_DATABASE')
+        if not app.config.get(key('SERVER_AUTH'), True):
+            database = app.config.get(key('DATABASE'))
 
     options = ''
 
-    if app.config.get('MONGOALCHEMY_OPTIONS') is not None:
-        options = "?%s" % app.config.get('MONGOALCHEMY_OPTIONS')
+    if app.config.get(key('OPTIONS')) is not None:
+        options = "?%s" % app.config.get(key('OPTIONS'))
 
-    uri = 'mongodb://%s%s:%s/%s%s' % (auth, app.config.get('MONGOALCHEMY_SERVER'),
-                                      app.config.get('MONGOALCHEMY_PORT'), database, options)
+    uri = 'mongodb://%s%s:%s/%s%s' % (auth, app.config.get(key('SERVER')),
+                                      app.config.get(key('PORT')), database, options)
 
     return uri
 
@@ -87,29 +87,34 @@ class MongoAlchemy(object):
             return app
     """
 
-    def __init__(self, app=None):
+    def __init__(self, app=None, config_prefix='MONGOALCHEMY'):
         self.Document = make_document_class(self, Document)
         self.Document.query = _QueryField(self)
 
         _include_mongoalchemy(self)
 
         if app is not None:
-            self.init_app(app)
+            self.init_app(app, config_prefix)
         else:
             self.session = None
 
-    def init_app(self, app):
+    def init_app(self, app, config_prefix='MONGOALCHEMY'):
         """This callback can be used to initialize an application for the use with this
         MongoDB setup. Never use a database in the context of an application not
         initialized that way or connections will leak."""
-        if 'MONGOALCHEMY_DATABASE' not in app.config:
+        
+        self.config_prefix = config_prefix
+        def key(suffix):
+            return '%s_%s' % (config_prefix, suffix)
+        
+        if key('DATABASE') not in app.config:
             raise ImproperlyConfiguredError("You should provide a database name "
-                                            "(the MONGOALCHEMY_DATABASE setting).")
+                                            "(the %s setting)." % key('DATABASE'))
 
-        uri = _get_mongo_uri(app)
-        rs = app.config.get('MONGOALCHEMY_REPLICA_SET')
-        self.session = session.Session.connect(app.config.get('MONGOALCHEMY_DATABASE'),
-                                               safe=app.config.get('MONGOALCHEMY_SAFE_SESSION',
+        uri = _get_mongo_uri(app, key)
+        rs = app.config.get(key('REPLICA_SET'))
+        self.session = session.Session.connect(app.config.get(key('DATABASE')),
+                                               safe=app.config.get(key('SAFE_SESSION'),
                                                                    False),
                                                host=uri, replicaSet=rs)
         self.Document._session = self.session
