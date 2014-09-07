@@ -165,6 +165,23 @@ The following configuration values are present in Flask-MongoAlchemy:
 
 =============================== =========================================
 
+When :class:`~flask_mongoalchemy.MongoAlchemy` or
+:meth:`~flask_mongoalchemy.MongoAlchemy.init_app` are invoked with only one argument
+(the :class:`~flask.Flask` instance), a configuration value prefix of
+``MONGOALCHEMY`` is assumed; this can be overridden with the `config_prefix`
+argument, for example:
+
+::
+
+    app = Flask(__name__)
+
+    # defaulting to MONGOENGINE prefix
+    mongo1 = MongoAlchemy(app)
+
+    # using another database config
+    app.config['OTHER_DBNAME'] = 'other'
+    mongo2 = MongoAlchemy(app, config_prefix='OTHER')
+
 API
 ---
 
