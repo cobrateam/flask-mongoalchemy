@@ -8,7 +8,7 @@ Documentation
 
 If you want to get started, check the `example sourcecode <http://github.com/cobrateam/flask-mongoalchemy/tree/master/examples>`_ out.
 
-    For full documentation, see the online docs at: `<http://packages.python.org/Flask-MongoAlchemy/>`_.
+    For full documentation, see the online docs at: `<https://pythonhosted.org/Flask-MongoAlchemy/>`_.
 
 Development
 +++++++++++
@@ -139,4 +139,4 @@ Flask-MongoAlchemy 0.2
 
     >>> Document.query.get(mongo_id)
 
-* Added ``get_or_404``, ``first_or_404`` and ``paginate`` methods on ``BaseQuery`` class. Check the `documentation <http://packages.python.org/Flask-MongoAlchemy>`_ to know how to use them :)
+* Added ``get_or_404``, ``first_or_404`` and ``paginate`` methods on ``BaseQuery`` class. Check the `documentation <https://pythonhosted.org/Flask-MongoAlchemy>`_ to know how to use them :)
