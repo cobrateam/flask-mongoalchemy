@@ -42,6 +42,11 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.7.0
+------------------------
+
+ * Multiple database support (thanks Misja Hoebe)
+
 Flask-MongoAlchemy 0.6.1
 ------------------------
 
