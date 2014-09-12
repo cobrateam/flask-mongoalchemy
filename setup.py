@@ -13,7 +13,7 @@ Adds Flask support for MongoDB using Mongo-Alchemy.
 Links
 `````
 
-* `documentation <http://packages.python.org/Flask-MongoAlchemy>`_
+* `documentation <https://pythonhosted.org/Flask-MongoAlchemy>`_
 * `development version
 <http://github.com/cobrateam/flask-mongoalchemy/zipball/master#egg=Flask-MongoAlchemy-dev>`_
 
