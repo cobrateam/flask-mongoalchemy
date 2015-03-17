@@ -124,7 +124,7 @@ Flask-MongoAlchemy 0.3.3
 Flask-MongoAlchemy 0.3.2
 ------------------------
 
-* Compability with Flask 0.7
+* Compatibility with Flask 0.7
 
 Flask-MongoAlchemy 0.3.1
 ------------------------
