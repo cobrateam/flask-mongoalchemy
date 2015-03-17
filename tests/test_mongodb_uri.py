@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2014 flask-mongoalchemy authors. All rights reserved.
+# Copyright 2015 flask-mongoalchemy authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
@@ -43,3 +43,8 @@ class MongoDBURITestCase(BaseTestCase):
         from flask.ext.mongoalchemy import _get_mongo_uri
         self.assertEqual(_get_mongo_uri(self.app),
                          'mongodb://database.lukehome.com:27017/?safe=true')
+
+    def test_mongodb_uri_connection_string(self):
+        self.app.config['MONGOALCHEMY_CONNECTION_STRING'] = uri = 'mongodb://luke@rhost:27018/test'
+        from flask.ext.mongoalchemy import _get_mongo_uri
+        self.assertEqual(_get_mongo_uri(self.app), uri)

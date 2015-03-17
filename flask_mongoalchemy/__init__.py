@@ -30,6 +30,10 @@ def _get_mongo_uri(app, key=lambda x:'MONGOALCHEMY_%s' % x):
     auth = ''
     database = ''
 
+    uri = app.config.get(key('CONNECTION_STRING'))
+    if uri:
+        return uri
+
     if app.config.get(key('USER')) is not None:
         auth = app.config.get(key('USER'))
         if app.config.get(key('PASSWORD')) is not None:
