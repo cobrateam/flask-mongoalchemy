@@ -4,20 +4,20 @@ Flask-MongoAlchemy
 .. image:: https://travis-ci.org/cobrateam/flask-mongoalchemy.png?branch=master
    :target: https://travis-ci.org/cobrateam/flask-mongoalchemy
 
-`Flask <http://flask.pocoo.org>`_ support for `MongoDB <http://mongodb.org>`_ using `MongoAlchemy <http://mongoalchemy.org>`_.
+`Flask <http://flask.pocoo.org>`_ support for `MongoDB <https://mongodb.org>`_ using `MongoAlchemy <http://mongoalchemy.org>`_.
 
 Documentation
 +++++++++++++
 
-If you want to get started, check the `example sourcecode <http://github.com/cobrateam/flask-mongoalchemy/tree/master/examples>`_ out.
+If you want to get started, check the `example sourcecode <https://github.com/cobrateam/flask-mongoalchemy/tree/master/examples>`_ out.
 
     For full documentation, see the online docs at: `<https://pythonhosted.org/Flask-MongoAlchemy/>`_.
 
 Development
 +++++++++++
 
-* Source hosted at `Github <http://github.com/cobrateam/flask-mongoalchemy>`_
-* Report issues on `Github Issues <http://github.com/cobrateam/flask-mongoalchemy/issues>`_
+* Source hosted at `Github <https://github.com/cobrateam/flask-mongoalchemy>`_
+* Report issues on `Github Issues <https://github.com/cobrateam/flask-mongoalchemy/issues>`_
 
 Bootstraping the development environment
 ----------------------------------------
