@@ -120,50 +120,55 @@ The following configuration values are present in Flask-MongoAlchemy:
 
 .. tabularcolumns:: |p{6.5cm}|p{8.5cm}|
 
-=============================== =========================================
-``MONGOALCHEMY_DATABASE``       The database name that should be used for
-                                the connection.
-``MONGOALCHEMY_SERVER``         The MongoDB server.
+==================================== ==================================================
+ ``MONGOALCHEMY_DATABASE``            The database name that should be used for
+                                      the connection.
 
-                                *Default value:* ``localhost``
+ ``MONGOALCHEMY_SERVER``              The MongoDB server.
 
-``MONGOALCHEMY_PORT``           Listening port of the MongoDB server.
+                                      *Default value:* ``localhost``
 
-                                *Default value:* ``27017``
+ ``MONGOALCHEMY_PORT``                Listening port of the MongoDB server.
 
-``MONGOALCHEMY_USER``           User for database connection.
+                                      *Default value:* ``27017``
 
-                                *Default value:* ``None``
+ ``MONGOALCHEMY_USER``                User for database connection.
 
-``MONGOALCHEMY_PASSWORD``       Password for database connection.
+                                      *Default value:* ``None``
 
-                                *Default value:* ``None``
+ ``MONGOALCHEMY_PASSWORD``            Password for database connection.
 
-``MONGOALCHEMY_SAFE_SESSION``   Use session in safe mode. When in safe
-                                mode, all methods like ``save`` and
-                                ``delete`` wait for the operation to
-                                complete.
+                                      *Default value:* ``None``
 
-                                *Default value:* ``False``
+ ``MONGOALCHEMY_SAFE_SESSION``        Use session in safe mode. When in safe
+                                      mode, all methods like ``save`` and
+                                      ``delete`` wait for the operation to
+                                      complete.
 
- ``MONGOALCHEMY_OPTIONS``       Pass extra options to the MongoDB server
-                                when connecting.
+                                      *Default value:* ``False``
 
-                                *e.g.:* safe=true
-                                *Default value:* ``None``
+ ``MONGOALCHEMY_OPTIONS``             Pass extra options to the MongoDB server
+                                      when connecting.
 
- ``MONGOALCHEMY_SERVER_AUTH``   Boolean value indicating to use server based
-                                authentication or not. When ``False``, will use
-                                database based authentication.
+                                      *e.g.:* safe=true
+                                      *Default value:* ``None``
 
-                                *Default value:* ``True``
+ ``MONGOALCHEMY_SERVER_AUTH``         Boolean value indicating to use server based
+                                      authentication or not. When ``False``, will use
+                                      database based authentication.
 
- ``MONGOALCHEMY_REPLICA_SET``   Name of the replica set to be used. Empty for
-                                no replica sets.
+                                      *Default value:* ``True``
 
-                                *Default value:* ````
+ ``MONGOALCHEMY_REPLICA_SET``         Name of the replica set to be used. Empty for
+                                      no replica sets.
 
-=============================== =========================================
+                                      *Default value:* ````
+
+ ``MONGOALCHEMY_CONNECTION_STRING``   The connection string to use, when it's
+                                      defined, Flask MongoAlchemy will ignore other
+                                      connection settings previously specified.
+
+==================================== ==================================================
 
 When :class:`~flask_mongoalchemy.MongoAlchemy` or
 :meth:`~flask_mongoalchemy.MongoAlchemy.init_app` are invoked with only one argument
