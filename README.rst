@@ -87,7 +87,7 @@ Flask-MongoAlchemy 0.5.2
 Flask-MongoAlchemy 0.5.1
 ------------------------
 
-* [bugfix] fixing the subpackage structure
+* [bugfix] fixed the subpackage structure
 
 Flask-MongoAlchemy 0.5
 ----------------------
