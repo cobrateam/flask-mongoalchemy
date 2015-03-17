@@ -1,6 +1,9 @@
 Flask-MongoAlchemy
 ==================
 
+.. image:: https://travis-ci.org/cobrateam/flask-mongoalchemy.png?branch=master
+   :target: https://travis-ci.org/cobrateam/flask-mongoalchemy
+
 `Flask <http://flask.pocoo.org>`_ support for `MongoDB <http://mongodb.org>`_ using `MongoAlchemy <http://mongoalchemy.org>`_.
 
 Documentation
