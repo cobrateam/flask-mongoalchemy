@@ -48,93 +48,93 @@ Changelog
 Flask-MongoAlchemy 0.7.1
 ------------------------
 
- * Support for specifying the full connection string, via the
-   MONGOALCHEMY_CONNECTION_STRING configuration value.
+* Support for specifying the full connection string, via the
+  MONGOALCHEMY_CONNECTION_STRING configuration value.
 
 Flask-MongoAlchemy 0.7.0
 ------------------------
 
- * Multiple database support (thanks Misja Hoebe)
+* Multiple database support (thanks Misja Hoebe)
 
 Flask-MongoAlchemy 0.6.1
 ------------------------
 
- * Replica set support, via the MONGOALCHEMY_REPLICA_SET configuration value.
+* Replica set support, via the MONGOALCHEMY_REPLICA_SET configuration value.
 
 Flask-MongoAlchemy 0.6.0
 ------------------------
 
- * Use the not-so-new extension scheme for Flask, users now should import the
-   extension using the flask.ext metapackage
- * Some fixes in the docs, regarding other extensions usage in examples
+* Use the not-so-new extension scheme for Flask, users now should import the
+  extension using the flask.ext metapackage
+* Some fixes in the docs, regarding other extensions usage in examples
 
 Flask-MongoAlchemy 0.5.4
 ------------------------
 
- * [bugfix] fix compatibility with pymongo 2.2
+* [bugfix] fix compatibility with pymongo 2.2
 
 Flask-MongoAlchemy 0.5.3
 ------------------------
 
- * [bugfix] fixed a bug on setup.py
+* [bugfix] fixed a bug on setup.py
 
 Flask-MongoAlchemy 0.5.2
 ------------------------
 
- * added a configuration value to do user authentication per server or per database
- * [bugfix] fixed server based authentication
+* added a configuration value to do user authentication per server or per database
+* [bugfix] fixed server based authentication
 
 Flask-MongoAlchemy 0.5.1
 ------------------------
 
- * [bugfix] fixing the subpackage structure
+* [bugfix] fixing the subpackage structure
 
 Flask-MongoAlchemy 0.5
 ----------------------
 
- * Capability to deal with multiple Mongo sessions
+* Capability to deal with multiple MongoDB sessions
 
 Flask-MongoAlchemy 0.4.3
 ------------------------
 
- * [bugfix] added database to MongoDB URI for authenticated connectinos
+* [bugfix] added database to MongoDB URI for authenticated connectinos
 
 Flask-MongoAlchemy 0.4.2
 ------------------------
 
- * Fixed pymongo dependency in setup.py
+* Fixed pymongo dependency in setup.py
 
 Flask-MongoAlchemy 0.4.1
 ------------------------
 
- * MongoAlchemy 0.9 as dependency
- * [bugfix] safe session operations on connect, save and remove
+* MongoAlchemy 0.9 as dependency
+* [bugfix] safe session operations on connect, save and remove
 
 Flask-MongoAlchemy 0.4
 ----------------------
 
- * Documentation improvements
- * Support for safe or unsafe sessions and operations
+* Documentation improvements
+* Support for safe or unsafe sessions and operations
 
 Flask-MongoAlchemy 0.3.3
 ------------------------
 
- * Fixed dependencies on ``setup.py``
+* Fixed dependencies on ``setup.py``
 
 Flask-MongoAlchemy 0.3.2
 ------------------------
 
- * Compability with Flask 0.7
+* Compability with Flask 0.7
 
 Flask-MongoAlchemy 0.3.1
 ------------------------
 
- * [bugfix] method ``get`` on ``Query`` objects was never returning the object
+* [bugfix] method ``get`` on ``Query`` objects was never returning the object
 
 Flask-MongoAlchemy 0.3
 ----------------------
 
- * Introduced update queries support
+* Introduced update queries support
 
 Flask-MongoAlchemy 0.2
 ----------------------
