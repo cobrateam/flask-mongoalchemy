@@ -45,6 +45,12 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.7.1
+------------------------
+
+ * Support for specifying the full connection string, via the
+   MONGOALCHEMY_CONNECTION_STRING configuration value.
+
 Flask-MongoAlchemy 0.7.0
 ------------------------
 

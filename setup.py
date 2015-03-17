@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2014 flask-mongoalchemy authors. All rights reserved.
+# Copyright 2015 flask-mongoalchemy authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
@@ -26,7 +26,7 @@ with open('README.rst') as readme_file:
 
 setup(
     name='Flask-MongoAlchemy',
-    version='0.7.0',
+    version='0.7.1',
     url='http://github.com/cobrateam/flask-mongoalchemy',
     license='BSD',
     author='Francisco Souza',
