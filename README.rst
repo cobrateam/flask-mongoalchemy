@@ -92,7 +92,7 @@ Flask-MongoAlchemy 0.5.1
 Flask-MongoAlchemy 0.5
 ----------------------
 
-* Capability to deal with multiple MongoDB sessions
+* Support for multiple MongoDB sessions
 
 Flask-MongoAlchemy 0.4.3
 ------------------------
