@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2014 flask-mongoalchemy authors. All rights reserved.
+# Copyright 2015 flask-mongoalchemy authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
@@ -102,11 +102,11 @@ class MongoAlchemy(object):
         """This callback can be used to initialize an application for the use with this
         MongoDB setup. Never use a database in the context of an application not
         initialized that way or connections will leak."""
-        
+
         self.config_prefix = config_prefix
         def key(suffix):
             return '%s_%s' % (config_prefix, suffix)
-        
+
         if key('DATABASE') not in app.config:
             raise ImproperlyConfiguredError("You should provide a database name "
                                             "(the %s setting)." % key('DATABASE'))
