@@ -45,6 +45,11 @@ Community
 Changelog
 +++++++++
 
+Flask-MongoAlchemy 0.7.2
+------------------------
+
+* Pin pymongo version to ensure driver compatibility.
+
 Flask-MongoAlchemy 0.7.1
 ------------------------
 
