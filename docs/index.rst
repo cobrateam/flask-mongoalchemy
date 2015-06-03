@@ -13,12 +13,11 @@ Flask-MongoAlchemy adds support for `MongoDB`_ on `Flask`_ using `MongoAlchemy`_
 Installation
 ------------
 
-You can easily install using `pip` or `easy_install`:
+You can easily install using `pip`:
 
 ::
 
     $ [sudo] pip install Flask-MongoAlchemy
-    $ [sudo] easy_install Flask-MongoAlchemy
 
 If you prefer, you may use the latest source version by cloning the following git repository:
 
