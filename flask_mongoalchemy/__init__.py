@@ -123,8 +123,8 @@ class MongoAlchemy(object):
             timezone = pytz.timezone(app.config.get(key('TIMEZONE')))
         self.session = session.Session.connect(app.config.get(key('DATABASE')),
                                                safe=app.config.get(key('SAFE_SESSION'),
-                                               timezone = timezone,
                                                                    False),
+                                               timezone = timezone,
                                                host=uri, replicaSet=rs)
         self.Document._session = self.session
 
