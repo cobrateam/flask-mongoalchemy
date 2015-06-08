@@ -7,6 +7,7 @@
 from math import ceil
 from mongoalchemy import document, exceptions, fields, session, query
 from flask import abort
+import pytz
 
 from .meta import make_document_class
 
@@ -117,8 +118,12 @@ class MongoAlchemy(object):
 
         uri = _get_mongo_uri(app, key)
         rs = app.config.get(key('REPLICA_SET'))
+        timezone = None
+        if key('TIMEZONE') in app.config:
+            timezone = pytz.timezone(app.config.get(key('TIMEZONE')))
         self.session = session.Session.connect(app.config.get(key('DATABASE')),
                                                safe=app.config.get(key('SAFE_SESSION'),
+                                               timezone = timezone,
                                                                    False),
                                                host=uri, replicaSet=rs)
         self.Document._session = self.session
