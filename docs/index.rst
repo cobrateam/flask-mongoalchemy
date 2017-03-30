@@ -161,7 +161,7 @@ The following configuration values are present in Flask-MongoAlchemy:
  ``MONGOALCHEMY_REPLICA_SET``         Name of the replica set to be used. Empty for
                                       no replica sets.
 
-                                      *Default value:* ````
+                                      *Default value:* ``''``
 
  ``MONGOALCHEMY_CONNECTION_STRING``   The connection string to use, when it's
                                       defined, Flask MongoAlchemy will ignore other
